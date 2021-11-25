@@ -2,7 +2,8 @@
 
 namespace Pharmacy.Domain
 {
-    public class Class1
+    public interface IUnitOfWork: IDisposable
     {
+
     }
 }
