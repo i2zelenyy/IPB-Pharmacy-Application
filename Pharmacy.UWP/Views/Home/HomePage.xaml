@@ -15,12 +15,23 @@
             IsSettingsVisible="False"
             IsBackButtonVisible="Collapsed"
             PaneTitle="Menu"
-            PaneDisplayMode="Left">
-
+            PaneDisplayMode="Left"
+            CompactPaneLength="55">
+            
             <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Content="Medicine" Tag="MedicinePage" x:Name="MedicinePageItem">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE95E;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="Basket" Tag="BasketPage" x:Name="BasketPageItem">
                     <muxc:NavigationViewItem.Icon>
                         <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE7BF;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="Stores" Tag="StoresPage" x:Name="StoresPageItem">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe909;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
@@ -32,9 +43,9 @@
                             <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE9F5;"/>
                         </muxc:NavigationViewItem.Icon>
                     </muxc:NavigationViewItem>
-                    <muxc:NavigationViewItem Content="Change user" Tag="Switch" x:Name="SwitchItem">
+                    <muxc:NavigationViewItem Content="Sign out" Tag="SignOut" x:Name="SignOutItem">
                         <muxc:NavigationViewItem.Icon>
-                            <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE8AB;"/>
+                            <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF3B1;"/>
                         </muxc:NavigationViewItem.Icon>
                     </muxc:NavigationViewItem>
                 </StackPanel>
@@ -43,7 +54,7 @@
             <muxc:NavigationView.AutoSuggestBox>
                 <AutoSuggestBox QueryIcon="Find" AutomationProperties.Name="SearchItem" />
             </muxc:NavigationView.AutoSuggestBox>
-
+        
         </muxc:NavigationView>
 
     </Grid>
