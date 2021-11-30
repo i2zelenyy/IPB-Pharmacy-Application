@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Domain", "Pharmacy.Domain\Pharmacy.Domain.csproj", "{4726AE57-F9E0-46E1-9337-176132B5A300}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.Infrastructure", "Pharmacy.Infrastructure\Pharmacy.Infrastructure.csproj", "{8288699E-FCF0-4626-9FBC-94D1ACDF3CA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharmacy.Infrastructure", "Pharmacy.Infrastructure\Pharmacy.Infrastructure.csproj", "{8288699E-FCF0-4626-9FBC-94D1ACDF3CA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharmacy.UWP", "Pharmacy.UWP\Pharmacy.UWP.csproj", "{6337D1E2-B505-4FC5-ABA5-926AF192CA19}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4726AE57-F9E0-46E1-9337-176132B5A300} = {4726AE57-F9E0-46E1-9337-176132B5A300}
+		{8288699E-FCF0-4626-9FBC-94D1ACDF3CA9} = {8288699E-FCF0-4626-9FBC-94D1ACDF3CA9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +68,8 @@ Global
 		{8288699E-FCF0-4626-9FBC-94D1ACDF3CA9}.Release|x86.ActiveCfg = Release|Any CPU
 		{8288699E-FCF0-4626-9FBC-94D1ACDF3CA9}.Release|x86.Build.0 = Release|Any CPU
 		{6337D1E2-B505-4FC5-ABA5-926AF192CA19}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6337D1E2-B505-4FC5-ABA5-926AF192CA19}.Debug|Any CPU.Build.0 = Debug|x86
+		{6337D1E2-B505-4FC5-ABA5-926AF192CA19}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{6337D1E2-B505-4FC5-ABA5-926AF192CA19}.Debug|ARM.ActiveCfg = Debug|ARM
 		{6337D1E2-B505-4FC5-ABA5-926AF192CA19}.Debug|ARM.Build.0 = Debug|ARM
 		{6337D1E2-B505-4FC5-ABA5-926AF192CA19}.Debug|ARM.Deploy.0 = Debug|ARM
