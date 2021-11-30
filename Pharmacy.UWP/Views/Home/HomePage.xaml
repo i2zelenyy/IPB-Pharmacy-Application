@@ -16,22 +16,23 @@
             IsBackButtonVisible="Collapsed"
             PaneTitle="Menu"
             PaneDisplayMode="Left"
-            CompactPaneLength="55">
+            CompactPaneLength="55"
+            IsPaneOpen="False">
             
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Content="Medicine" Tag="MedicinePage" x:Name="MedicinePageItem">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE95E;"/>
+                        <FontIcon Glyph="&#xE95E;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="Basket" Tag="BasketPage" x:Name="BasketPageItem">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE7BF;"/>
+                        <FontIcon Glyph="&#xE7BF;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="Stores" Tag="StoresPage" x:Name="StoresPageItem">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe909;"/>
+                        <FontIcon Glyph="&#xe909;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
@@ -40,12 +41,12 @@
                 <StackPanel x:Name="FooterStackPanel" Orientation="Vertical">
                     <muxc:NavigationViewItem Content="Profile" Tag="ProfilePage" x:Name="ProfilePageItem">
                         <muxc:NavigationViewItem.Icon>
-                            <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE9F5;"/>
+                            <FontIcon Glyph="&#xE9F5;"/>
                         </muxc:NavigationViewItem.Icon>
                     </muxc:NavigationViewItem>
                     <muxc:NavigationViewItem Content="Sign out" Tag="SignOut" x:Name="SignOutItem">
                         <muxc:NavigationViewItem.Icon>
-                            <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xF3B1;"/>
+                            <FontIcon Glyph="&#xF3B1;"/>
                         </muxc:NavigationViewItem.Icon>
                     </muxc:NavigationViewItem>
                 </StackPanel>
