@@ -1,4 +1,4 @@
-﻿using Pharmacy.UWP.Views;
+﻿using Pharmacy.UWP.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -49,7 +49,7 @@ namespace Pharmacy.UWP
                 if (rootFrame.Content == null)
                 {
                     // Change to --> typeof(SignInPage)
-                    rootFrame.Navigate(typeof(HomePage), e.Arguments);
+                    rootFrame.Navigate(typeof(MenuPage), e.Arguments);
                 }
                 Window.Current.Activate();
             }

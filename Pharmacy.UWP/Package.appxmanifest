@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="Pharmacy.UWP.App">
       <uap:VisualElements
-        DisplayName="Pharmacy Application"
+        DisplayName="Braganca Pharmacy"
         Square44x44Logo="Assets\Pharmacy_Logo.png"
         Description="Pharmacy Application"
         BackgroundColor="transparent" Square150x150Logo="Assets\MediumTile.png">
