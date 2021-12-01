@@ -7,23 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
     <Grid>
 
         <NavigationView x:Name="Menu"
             IsSettingsVisible="False"
             IsBackButtonVisible="Collapsed"                 
-            PaneDisplayMode="LeftMinimal"
+            PaneDisplayMode="LeftCompact"
             IsPaneOpen="False"
-            ItemInvoked="Menu_ItemInvoked">
+            OpenPaneLength="230"
+            Loaded="Menu_Loaded"
+            SelectionChanged="Menu_SelectionChanged">
 
             <NavigationView.PaneHeader>
-                <TextBlock Text="Menu" FontSize="26" FontWeight="Medium" Margin="2"/>
+                <TextBlock Text="Menu" FontSize="26" FontWeight="Medium" Padding="35,2,0,0"/>
             </NavigationView.PaneHeader>
 
             <NavigationView.Header>
-                <TextBlock Text="Home" FontSize="30" FontWeight="SemiLight"
-                           Margin="5" HorizontalAlignment="Center"
+                <TextBlock Text="" FontSize="30" FontWeight="SemiLight"
+                           TextAlignment="Center"
+                           TextDecorations="Underline"
+                           Padding="0,10,0,0"
                            x:Name="Page_Header"/>
             </NavigationView.Header>
 
@@ -69,7 +73,10 @@
             </NavigationView.PaneFooter>
 
             <NavigationView.AutoSuggestBox>
-                <AutoSuggestBox QueryIcon="Find" AutomationProperties.Name="SearchItem" />
+                <AutoSuggestBox QueryIcon="Find"
+                                AutomationProperties.Name="SearchItem"
+                                Width="200"
+                                HorizontalAlignment="Left"/>
             </NavigationView.AutoSuggestBox>
 
             <Frame x:Name="frame"/>

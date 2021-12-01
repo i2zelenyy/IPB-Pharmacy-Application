@@ -8,11 +8,23 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-       
+
+        <!--<ListView
+            x:Name="StoresList"
+            ItemTemplate="{StaticResource StoresViewList}"
+            BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+            Width="800"
+            Height="400"
+            HorizontalAlignment="Left"/>
+
+        <DataTemplate x:Key="StoresViewList" x:DataType="local1:Stores">
+            <TextBlock Text="{x:Bind Name}" x:Phase="1" Margin="0,5,0,5"/>
+        </DataTemplate>-->
+        
     </Grid>
 </Page>
