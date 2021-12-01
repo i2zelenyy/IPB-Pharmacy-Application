@@ -23,5 +23,15 @@ namespace Pharmacy.UWP
         {
             this.InitializeComponent();
         }
+
+        private void ContentGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void ContentGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
