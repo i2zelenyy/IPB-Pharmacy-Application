@@ -5,58 +5,12 @@
     xmlns:local="using:Pharmacy.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
-        <muxc:NavigationView x:Name="Menu"
-            IsSettingsVisible="False"
-            IsBackButtonVisible="Collapsed"
-            PaneTitle="Menu"
-            PaneDisplayMode="Left"
-            CompactPaneLength="55"
-            IsPaneOpen="False">
-            
-            <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Content="Medicine" Tag="MedicinePage" x:Name="MedicinePageItem">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE95E;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="Basket" Tag="BasketPage" x:Name="BasketPageItem">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE7BF;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-                <muxc:NavigationViewItem Content="Stores" Tag="StoresPage" x:Name="StoresPageItem">
-                    <muxc:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xe909;"/>
-                    </muxc:NavigationViewItem.Icon>
-                </muxc:NavigationViewItem>
-            </muxc:NavigationView.MenuItems>
-
-            <muxc:NavigationView.PaneFooter>
-                <StackPanel x:Name="FooterStackPanel" Orientation="Vertical">
-                    <muxc:NavigationViewItem Content="Profile" Tag="ProfilePage" x:Name="ProfilePageItem">
-                        <muxc:NavigationViewItem.Icon>
-                            <FontIcon Glyph="&#xE9F5;"/>
-                        </muxc:NavigationViewItem.Icon>
-                    </muxc:NavigationViewItem>
-                    <muxc:NavigationViewItem Content="Sign out" Tag="SignOut" x:Name="SignOutItem">
-                        <muxc:NavigationViewItem.Icon>
-                            <FontIcon Glyph="&#xF3B1;"/>
-                        </muxc:NavigationViewItem.Icon>
-                    </muxc:NavigationViewItem>
-                </StackPanel>
-            </muxc:NavigationView.PaneFooter>
-
-            <muxc:NavigationView.AutoSuggestBox>
-                <AutoSuggestBox QueryIcon="Find" AutomationProperties.Name="SearchItem" />
-            </muxc:NavigationView.AutoSuggestBox>
         
-        </muxc:NavigationView>
 
+        
     </Grid>
 </Page>
