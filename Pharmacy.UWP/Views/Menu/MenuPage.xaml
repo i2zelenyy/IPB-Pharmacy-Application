@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
     <Grid>
 
         <NavigationView x:Name="Menu"
@@ -16,10 +16,11 @@
             PaneDisplayMode="LeftCompact"
             IsPaneOpen="False"
             OpenPaneLength="230"
-            ItemInvoked="Menu_ItemInvoked">
+            Loaded="Menu_Loaded"
+            SelectionChanged="Menu_SelectionChanged">
 
             <NavigationView.PaneHeader>
-                <TextBlock Text="Menu" FontSize="26" FontWeight="Medium" Margin="2"/>
+                <TextBlock Text="Menu" FontSize="26" FontWeight="Medium" Padding="35,2,0,0"/>
             </NavigationView.PaneHeader>
 
             <NavigationView.Header>

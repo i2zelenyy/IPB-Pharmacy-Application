@@ -27,9 +27,26 @@ namespace Pharmacy.UWP.Views.Menu
             this.InitializeComponent();
         }
 
-        private void Menu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void ProfilePageItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavigationViewItem nvi = (NavigationViewItem)args.InvokedItemContainer;
+            frame.Navigate(typeof(ProfilePage));
+            Page_Header.Text = "Profile";
+            
+        }
+
+        private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+            Menu.SelectedItem = HomePageItem;
+        }
+
+        private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            NavigationViewItem nvi = (NavigationViewItem)args.SelectedItemContainer;
             if (nvi != null)
             {
                 switch (nvi.Tag)
@@ -52,24 +69,8 @@ namespace Pharmacy.UWP.Views.Menu
                         frame.Navigate(typeof(StoresPage));
                         Page_Header.Text = "Stores";
                         break;
-
-                    case "ProfilePage":
-                        frame.Navigate(typeof(ProfilePage));
-                        Page_Header.Text = "Profile";
-                        break;
                 }
             }
-        }
-
-        private void ProfilePageItem_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            frame.Navigate(typeof(ProfilePage));
-            Page_Header.Text = "Profile";
-        }
-
-        private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
         }
     }
 }
