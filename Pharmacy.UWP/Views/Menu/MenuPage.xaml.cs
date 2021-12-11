@@ -31,7 +31,7 @@ namespace Pharmacy.UWP.Views.Menu
         {
             frame.Navigate(typeof(ProfilePage));
             Page_Header.Text = "Profile";
-            
+            Menu.SelectedItem = ProfilePageItem;
         }
 
         private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)
