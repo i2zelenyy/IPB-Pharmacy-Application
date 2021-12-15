@@ -27,26 +27,44 @@ namespace Pharmacy.UWP.Views.Menu
             this.InitializeComponent();
         }
 
-        private void ProfilePageItem_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            frame.Navigate(typeof(ProfilePage));
-            Page_Header.Text = "Profile";
-            Menu.SelectedItem = ProfilePageItem;
-        }
-
-        private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
         private void Menu_Loaded(object sender, RoutedEventArgs e)
         {
             Menu.SelectedItem = HomePageItem;
         }
 
-        private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        // Tapped events fix the problem accuring when navigation goes through top-bottom menus --> it fixes selection problem
+        private void HomePageItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavigationViewItem nvi = (NavigationViewItem)args.SelectedItemContainer;
+            Menu.SelectedItem = HomePageItem;
+        }
+
+        private void MedicinePageItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Menu.SelectedItem = MedicinePageItem;
+        }
+
+        private void BasketPageItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Menu.SelectedItem = BasketPageItem;
+        }
+
+        private void StoresPageItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Menu.SelectedItem = StoresPageItem;
+        }
+        private void ProfilePageItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Menu.SelectedItem = ProfilePageItem;
+        }
+
+        private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Menu.SelectedItem = SignOutItem;
+        }
+
+        private void Menu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            NavigationViewItem nvi = (NavigationViewItem)args.InvokedItemContainer;
             if (nvi != null)
             {
                 switch (nvi.Tag)
@@ -68,6 +86,12 @@ namespace Pharmacy.UWP.Views.Menu
                     case "StoresPage":
                         frame.Navigate(typeof(StoresPage));
                         Page_Header.Text = "Stores";
+                        break;
+                    case "ProfilePage":
+                        frame.Navigate(typeof(ProfilePage));
+                        Page_Header.Text = "Profile";
+                        break;
+                    case "SignOut":
                         break;
                 }
             }
