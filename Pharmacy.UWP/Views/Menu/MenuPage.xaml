@@ -17,7 +17,7 @@
             IsPaneOpen="False"
             OpenPaneLength="230"
             Loaded="Menu_Loaded"
-            ItemInvoked="Menu_ItemInvoked">
+            SelectionChanged="Menu_SelectionChanged">
 
             <NavigationView.PaneHeader>
                 <TextBlock Text="Menu" FontSize="26" FontWeight="Medium" Padding="35,2,0,0"/>

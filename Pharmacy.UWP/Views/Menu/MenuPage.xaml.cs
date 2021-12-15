@@ -62,9 +62,9 @@ namespace Pharmacy.UWP.Views.Menu
             Menu.SelectedItem = SignOutItem;
         }
 
-        private void Menu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            NavigationViewItem nvi = (NavigationViewItem)args.InvokedItemContainer;
+            NavigationViewItem nvi = (NavigationViewItem)args.SelectedItemContainer;
             if (nvi != null)
             {
                 switch (nvi.Tag)
