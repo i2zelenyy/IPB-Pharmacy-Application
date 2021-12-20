@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Pharmacy.Domain.SeedWork;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Pharmacy.Domain.Models
 {
-    public class Cheques
+    public class Cheques: Entity
     {
         public DateTime Date;
         public DateTime Time;
