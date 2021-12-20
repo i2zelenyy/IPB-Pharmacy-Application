@@ -19,7 +19,7 @@ namespace Pharmacy.Domain.Models
 
         public Medicine Medicine { get; set; } //1-many relationship
 
-        public List<Cheques> Cheques { get; set; }
+        
 
         public Baskets(int quantity, int medicineID, int userID)
         {
@@ -27,5 +27,7 @@ namespace Pharmacy.Domain.Models
             MedicineID = medicineID;
             UserID = userID;
         }
+
+        public List<Cheques> Cheques { get; set; }
     }
 }
