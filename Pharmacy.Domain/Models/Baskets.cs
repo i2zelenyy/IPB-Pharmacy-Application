@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Pharmacy.Domain.SeedWork;
 
 namespace Pharmacy.Domain.Models
 {
-   public class Baskets
+   public class Baskets:Entity
     {
         public int Quantity { get; set; }
 
