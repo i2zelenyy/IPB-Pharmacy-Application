@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Pharmacy.Domain.SeedWork;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Pharmacy.Domain.Models
 {
-    public class Users
+    public class Users:Entity
     { public string FirstName { get; set; }
 
      public string LastName { get; set; }
