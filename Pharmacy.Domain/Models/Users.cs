@@ -39,6 +39,7 @@ namespace Pharmacy.Domain.Models
             IsAdmin = isAdmin;
         }
 
+        public List <Baskets> Baskets { get; set; } // Collection of Baskets 
 
 
 
