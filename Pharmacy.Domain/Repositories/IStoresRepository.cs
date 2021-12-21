@@ -9,6 +9,6 @@ namespace Pharmacy.Domain.Repositories
 {
     public interface IStoresRepository: IRepository<Stores>
     {
-        Task<Stores> FindByNameAsync(string name);
+        Task<Stores>  FindByNameAsync(string name);
     }
 }

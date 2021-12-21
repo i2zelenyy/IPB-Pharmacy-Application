@@ -9,7 +9,7 @@ namespace Pharmacy.Domain.Repositories
 {
     public interface IUsersRepository : IRepository<Users>
     {
-        Task<Users> FindByNameAsync(string username);
+        Task<Users> FindByUsernameAsync(string Username);
 
     }
 }
