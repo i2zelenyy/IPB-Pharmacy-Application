@@ -10,6 +10,9 @@ namespace Pharmacy.Infrastructure
     {
         public DbSet<Medicine> Medicine { get; set; }
         public DbSet<Stores> Stores { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Cheques> Cheques { get; set; }
+        public DbSet<Baskets> Baskets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
