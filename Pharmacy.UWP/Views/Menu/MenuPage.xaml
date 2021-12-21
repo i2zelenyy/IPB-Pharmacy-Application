@@ -32,28 +32,25 @@
             </NavigationView.Header>
 
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Home" Tag="HomePage" x:Name="HomePageItem">
+                <NavigationViewItem Content="Home" Tag="HomePage" x:Name="HomePageItem" Tapped="HomePageItem_Tapped">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe80f;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Medicine" Tag="MedicinePage" x:Name="MedicinePageItem">
+                <NavigationViewItem Content="Medicine" Tag="MedicinePage" x:Name="MedicinePageItem" Tapped="MedicinePageItem_Tapped">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE95E;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Basket" Tag="BasketPage" x:Name="BasketPageItem">
+                <NavigationViewItem Content="Basket" Tag="BasketPage" x:Name="BasketPageItem" Tapped="BasketPageItem_Tapped">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE7BF;"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Stores" Tag="StoresPage" x:Name="StoresPageItem">
+                <NavigationViewItem Content="Stores" Tag="StoresPage" x:Name="StoresPageItem" Tapped="StoresPageItem_Tapped">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xe909;"/>
                     </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem >
-                    
                 </NavigationViewItem>
             </NavigationView.MenuItems>
 
