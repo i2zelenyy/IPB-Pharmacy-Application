@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Domain.Repositories
 {
-    public interface IBasketsRepository : IRepository<Baskets>
+    public interface IBasketsRepository: IRepository<Baskets>
     {
        
-
     }
 }

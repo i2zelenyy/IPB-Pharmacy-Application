@@ -17,11 +17,6 @@ namespace Pharmacy.Domain.Models
 
         public List<Baskets> Baskets { get; set; } 
 
-
-
-
-
-
         public Medicine(
                         string category, string name, string brand,
                         float price, string description, string ingredients, string howToUse

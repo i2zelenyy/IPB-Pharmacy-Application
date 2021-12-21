@@ -13,8 +13,13 @@ namespace Pharmacy.Domain.Models
         public int StoreID;
         public int BasketID;
 
-        public Cheques(DateTime date, DateTime time, 
-            float totalPrice, int storeID, int basketID)
+        public Baskets Baskets { get; set; }  // 1-many relationship
+        public Stores Stores { get; set; }  // 1-many relationship
+
+        public Cheques(
+                       DateTime date, DateTime time, 
+                       float totalPrice, int storeID, int basketID
+                       )
         {
             Date = date;
             Time = time;
@@ -22,9 +27,6 @@ namespace Pharmacy.Domain.Models
             StoreID = storeID;
             BasketID = basketID;
         }
-
-        public Baskets Baskets { get; set; }  // 1-many relationship
-        public Stores Stores { get; set; }  // 1-many relationship
 
     }
 }

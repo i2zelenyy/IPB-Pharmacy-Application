@@ -11,11 +11,9 @@ namespace Pharmacy.Infrastructure.Repositories
 {
     public class ChequesRepository : Repository<Cheques>, IChequesRepository
     {
-        public ChequesRepository(PharmacyDbContext dbContext) : base(dbContext)
+        public ChequesRepository(PharmacyDbContext dbContext): base(dbContext)
         {
 
         }
-
-
     }
 }

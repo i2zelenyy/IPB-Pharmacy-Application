@@ -8,6 +8,9 @@ namespace Pharmacy.Domain
     {
         IMedicineRepository MedicineRepository { get; }
         IStoresRepository StoresRepository { get; }
+        IUsersRepository UsersRepository { get; }
+        IBasketsRepository BasketsRepository { get; }
+        IChequesRepository ChequesRepository { get; }
 
         Task SaveAsync();
     }

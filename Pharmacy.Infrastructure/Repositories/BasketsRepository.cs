@@ -11,12 +11,9 @@ namespace Pharmacy.Infrastructure.Repositories
 {
     public class BasketsRepository : Repository<Baskets>, IBasketsRepository
     {
-        public BasketsRepository(PharmacyDbContext dbContext) : base(dbContext)
+        public BasketsRepository(PharmacyDbContext dbContext): base(dbContext)
         {
 
         }
-
-        
     }
-    }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}

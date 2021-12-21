@@ -5,7 +5,7 @@ using Pharmacy.Domain.SeedWork;
 
 namespace Pharmacy.Domain.Models
 {
-   public class Baskets:Entity
+   public class Baskets: Entity
     {
         public int Quantity { get; set; }
 
@@ -13,14 +13,11 @@ namespace Pharmacy.Domain.Models
 
         public int UserID { get; set; }
 
-
-
-
         public Users Users { get; set; }  // 1-many relationship
 
-        public Medicine Medicine { get; set; } //1-many relationship
+        public Medicine Medicine { get; set; } // 1-many relationship
 
-        
+        public List<Cheques> Cheques { get; set; } // 1-many relationship
 
         public Baskets(int quantity, int medicineID, int userID)
         {
@@ -28,7 +25,6 @@ namespace Pharmacy.Domain.Models
             MedicineID = medicineID;
             UserID = userID;
         }
-
-        public List<Cheques> Cheques { get; set; }
+      
     }
 }

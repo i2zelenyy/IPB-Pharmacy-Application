@@ -13,6 +13,9 @@ namespace Pharmacy.Infrastructure
 
         public IMedicineRepository MedicineRepository => new MedicineRepository(_dbContext);
         public IStoresRepository StoresRepository => new StoresRepository(_dbContext);
+        public IUsersRepository UsersRepository => new UsersRepository(_dbContext);
+        public IBasketsRepository BasketsRepository => new BasketsRepository(_dbContext);
+        public IChequesRepository ChequesRepository => new ChequesRepository(_dbContext);
 
         public UnitOfWork()
         {

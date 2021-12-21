@@ -14,6 +14,8 @@ namespace Pharmacy.Domain.Models
         public string Telephone { get; set; }
         public string OpeningHours { get; set; }
 
+        public List<Cheques> Cheques { get; set; }
+
         public Stores(
                       string name, string street, string city,
                       string country, string telephone, string openingHours
@@ -26,8 +28,6 @@ namespace Pharmacy.Domain.Models
             Telephone = telephone;
             OpeningHours = openingHours;
         }
-
-        public List<Cheques> Cheques { get; set; }
 
     }
 }

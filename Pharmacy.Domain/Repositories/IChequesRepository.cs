@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.Domain.Repositories
 {
-    public interface IChequesRepository : IRepository<Cheques>
+    public interface IChequesRepository: IRepository<Cheques>
     {
-
 
     }
 }
