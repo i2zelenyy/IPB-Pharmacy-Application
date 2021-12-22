@@ -16,6 +16,11 @@ namespace Pharmacy.Domain.Models
 
         public List<Cheques> Cheques { get; set; }
 
+        public Stores()
+        {
+
+        }
+
         public Stores(
                       string name, string street, string city,
                       string country, string telephone, string openingHours

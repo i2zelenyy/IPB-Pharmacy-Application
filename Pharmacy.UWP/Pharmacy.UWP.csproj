@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MenuViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModels\StoresViewModel\StoresViewModel.cs" />
     <Compile Include="Views\Basket\BasketPage.xaml.cs">
       <DependentUpon>BasketPage.xaml</DependentUpon>
     </Compile>
@@ -228,7 +229,19 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Pharmacy.Domain\Pharmacy.Domain.csproj">
+      <Project>{4726ae57-f9e0-46e1-9337-176132b5a300}</Project>
+      <Name>Pharmacy.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pharmacy.Infrastructure\Pharmacy.Infrastructure.csproj">
+      <Project>{8288699e-fcf0-4626-9fbc-94d1acdf3ca9}</Project>
+      <Name>Pharmacy.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
