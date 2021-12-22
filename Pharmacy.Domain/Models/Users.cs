@@ -19,6 +19,11 @@ namespace Pharmacy.Domain.Models
 
         public List<Baskets> Baskets { get; set; } // 1-many relationship
 
+        public Users()
+        {
+
+        }
+
         public Users(
                      string firstName, string lastName, DateTime dateOfBirth,
                      string username, string telephone, string street,
@@ -35,6 +40,5 @@ namespace Pharmacy.Domain.Models
             Email = email;
             IsAdmin = isAdmin;
         }
-
     }
 }

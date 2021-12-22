@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Pharmacy.UWP.ViewModels.StoresViewModel;
 
 namespace Pharmacy.UWP.Views.Stores
 {
@@ -20,10 +20,12 @@ namespace Pharmacy.UWP.Views.Stores
     {
         public StoresPage()
         {
+            StoresViewModel.LoadAllAsync();
             this.InitializeComponent();
+            StoresViewModel = new StoresViewModel();
         }
 
-
+        public StoresViewModel StoresViewModel { get; set; }
 
     }
 }

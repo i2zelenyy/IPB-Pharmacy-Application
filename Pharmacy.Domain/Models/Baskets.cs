@@ -19,12 +19,16 @@ namespace Pharmacy.Domain.Models
 
         public List<Cheques> Cheques { get; set; } // 1-many relationship
 
+        public Baskets()
+        {
+
+        }
+
         public Baskets(int quantity, int medicineID, int userID)
         {
             Quantity = quantity;
             MedicineID = medicineID;
             UserID = userID;
-        }
-      
+        }   
     }
 }

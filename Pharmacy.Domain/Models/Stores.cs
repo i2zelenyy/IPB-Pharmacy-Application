@@ -33,6 +33,5 @@ namespace Pharmacy.Domain.Models
             Telephone = telephone;
             OpeningHours = openingHours;
         }
-
     }
 }

@@ -6,25 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:models="using:Pharmacy.Domain.Models">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <ListView ItemsSource="{x:Bind StoresViewModel.Name}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Stores">
 
-        <!--<ListView
-            x:Name="StoresList"
-            ItemTemplate="{StaticResource StoresViewList}"
-            BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
-            Width="800"
-            Height="400"
-            HorizontalAlignment="Left"/>
+                    <Grid>
+                        <TextBlock Text="{x:Bind Name}"/>
+                    </Grid>
 
-        <DataTemplate x:Key="StoresViewList" x:DataType="local1:Stores">
-            <TextBlock Text="{x:Bind Name}" x:Phase="1" Margin="0,5,0,5"/>
-        </DataTemplate>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
         
     </Grid>
 </Page>
