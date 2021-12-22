@@ -7,21 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    xmlns:models="using:Pharmacy.Domain.Models">
+    xmlns:models="using:Pharmacy.Domain.Models"
+    x:Name="Page">
 
     <Grid>
-        <ListView ItemsSource="{x:Bind StoresViewModel.Name}">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:Stores">
 
-                    <Grid>
-                        <TextBlock Text="{x:Bind Name}"/>
-                    </Grid>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <TextBlock Text="{Binding ElementName=Page, Path=StoresViewModel.Name}"/>
+        </Grid>
 
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
-        
     </Grid>
 </Page>

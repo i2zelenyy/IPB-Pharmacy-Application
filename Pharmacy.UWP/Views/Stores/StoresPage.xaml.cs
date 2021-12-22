@@ -19,10 +19,10 @@ namespace Pharmacy.UWP.Views.Stores
     public sealed partial class StoresPage : Page
     {
         public StoresPage()
-        {
-            StoresViewModel.LoadAllAsync();
+        {           
             this.InitializeComponent();
             StoresViewModel = new StoresViewModel();
+            StoresViewModel.LoadAllAsync();
         }
 
         public StoresViewModel StoresViewModel { get; set; }

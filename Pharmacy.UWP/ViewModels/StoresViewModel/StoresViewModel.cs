@@ -23,14 +23,6 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
 
         public StoresViewModel()
         {
-            // Test data!
-            Stores = new ObservableCollection<Stores>()
-            {
-                new Stores {Name="No. 1"},
-                new Stores {Name="No. 2"},
-                new Stores {Name="No. 3"}
-            };
-
             Stores = new ObservableCollection<Stores>();
         }
 
