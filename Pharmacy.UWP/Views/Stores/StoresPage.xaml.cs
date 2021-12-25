@@ -22,12 +22,12 @@ namespace Pharmacy.UWP.Views.Stores
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ManageStoresPage), null);
+            this.Frame.Navigate(typeof(ManageStoresPage), AddButton.Label as string);
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ManageStoresPage), e);
+            this.Frame.Navigate(typeof(ManageStoresPage), EditButton.Label as string);
         }
     }
 }

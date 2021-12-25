@@ -28,9 +28,20 @@ namespace Pharmacy.UWP.Views.Stores
             StoresViewModel = new StoresViewModel();
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            if (e.Parameter as string == "Edit")
+            {
+                AddButton.Visibility = Visibility.Collapsed;
+                SaveButton.Visibility = Visibility.Visible;
+                HeaderTextBlock.Text = "Manage (Editing)";
+            }
+            else
+            {
+                AddButton.Visibility = Visibility.Visible;
+                SaveButton.Visibility = Visibility.Collapsed;
+                HeaderTextBlock.Text = "Manage (Adding)";
+            }
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -60,8 +71,8 @@ namespace Pharmacy.UWP.Views.Stores
 
             if (_error == false)
             {
-                MessageBox.Text = "Do you want to add the store?";
-                ConfirmationButton.Visibility = Visibility.Visible;
+                AddMessageBox.Text = "Do you want to add the store?";
+                AddConfirmationButton.Visibility = Visibility.Visible;
 
                 if (NameTextBox.Text != "")
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
@@ -77,8 +88,8 @@ namespace Pharmacy.UWP.Views.Stores
             }
             else
             {
-                MessageBox.Text = "Incorrect Data!";
-                ConfirmationButton.Visibility = Visibility.Collapsed;
+                AddMessageBox.Text = "Incorrect Data!";
+                AddConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
                 if (NameTextBox.Text == "")
@@ -96,13 +107,23 @@ namespace Pharmacy.UWP.Views.Stores
                 
         }
 
-        private async void ConfirmationButton_Click(object sender, RoutedEventArgs e)
+        private async void AddConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Text == "Do you want to add the store?")
+            if (AddMessageBox.Text == "Do you want to add the store?")
             {
                 await StoresViewModel.CreateStoreAsync();
                 this.Frame.GoBack();
             }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveConfirmationButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

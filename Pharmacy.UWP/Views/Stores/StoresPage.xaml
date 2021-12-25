@@ -14,23 +14,105 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
+        <Grid BorderThickness="1" BorderBrush="Black" Background="Bisque" Margin="1" Height="55">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
 
-        <Grid>
-            <CommandBar Background="Transparent" DefaultLabelPosition="Right" x:Name="StoresCommandBar">
-                <AppBarButton Icon="Add" Label="Add" Click="AddButton_Click" x:Name="AddButton"/>
-                <AppBarButton Icon="Edit" Label="Edit" Click="AppBarButton_Click"/>
-            </CommandBar>
+            <Grid BorderThickness="1" BorderBrush="Black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Name"/>
+                </Grid>
+
+                <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Country" />
+                </Grid>
+
+                <Grid Grid.Column="2" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="City" />
+                </Grid>
+
+                <Grid Grid.Column="3" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Street" />
+                </Grid>
+
+                <Grid Grid.Column="4" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="0,2,0,0" Text="Telephone" TextWrapping="Wrap" />
+                </Grid>
+
+                <Grid Grid.Column="5" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Opening Hours" TextWrapping="Wrap" />
+                </Grid>
+                                                                            
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <AppBarButton Icon="Add" Label="Add" Click="AddButton_Click" x:Name="AddButton" BorderBrush="Black" BorderThickness="1"/>
+                <AppBarButton Icon="Edit" Label="Edit" Click="EditButton_Click" x:Name="EditButton" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+            </Grid>
+            
         </Grid>
+        
+
 
         <ListView
             x:Name="StoresListView"
-            Grid.Row="1" ItemsSource="{x:Bind StoresViewModel.Stores}" Background="LightPink"
-            BorderThickness="1"
-            BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}">
+            Grid.Row="1" ItemsSource="{x:Bind StoresViewModel.Stores}" Background="FloralWhite"
+            BorderThickness="1" BorderBrush="Black" Margin="1">
 
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Stores">
-                    <TextBlock Text="{x:Bind Name}" x:Phase="1" Margin="0,5,0,5"/>
+                    <Grid BorderThickness="1" BorderBrush="Black" Width="auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid BorderThickness="1" BorderBrush="Black">
+                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Name}" TextWrapping="Wrap"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Country}" TextWrapping="Wrap"/>
+                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind City}" TextWrapping="Wrap"  Grid.Column="1"/>
+                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Street}" TextWrapping="Wrap"  Grid.Column="2"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2" BorderThickness="1" BorderBrush="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Telephone}" TextWrapping="Wrap"/>
+                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind OpeningHours}" TextWrapping="Wrap"  Grid.Column="1"/>
+                        </Grid>
+
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
