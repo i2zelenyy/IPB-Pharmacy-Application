@@ -22,7 +22,20 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Manage (Adding)" FontSize="23" HorizontalAlignment="Center" Margin="85,5,0,0"/>
-            <AppBarButton Icon="Add" Label="Add"  x:Name="CreateButton" Grid.Column="1" BorderBrush="Black"/>
+            <AppBarButton Icon="Add" Label="Add" x:Name="AddButton" Grid.Column="1" BorderBrush="Black" Click="AddButton_Click">
+                <AppBarButton.Flyout>
+                    <Flyout>
+                        <Grid Height="100" Width="110" Background="#d8d9d0" CornerRadius="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" x:Name="MessageBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <AppBarButton Grid.Row="1" x:Name="ConfirmationButton" Click="ConfirmationButton_Click" Icon="Accept" CornerRadius="10" Margin="20,0,0,0" Label="YES"/>
+                        </Grid>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
         </Grid>
 
 
@@ -33,15 +46,42 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+
+            <Grid Background="FloralWhite" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid BorderThickness="1" BorderBrush="Black">
+                    <TextBlock Text="Fields marked with asterisk (*) are obligatory to be filled" FontSize="14" Margin="15,2,0,0" TextWrapping="WrapWholeWords"/>
+                </Grid>
+                <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock Text="Enter data according to the presented examples" FontSize="14" Margin="15,2,0,0" TextWrapping="WrapWholeWords"/>
+                </Grid>
+            </Grid>
             
-            
+            <TextBox Grid.Row="1" Header="Name *" PlaceholderText="Braganca Pharmacy No.1" Margin="10" x:Name="NameTextBox"/>
+            <TextBox Grid.Row="2" Header="Telephone" PlaceholderText="+351 XXX-XXX-XXX" Margin="10" x:Name="TelephoneTextBox"/>
+            <TextBox Grid.Row="3" Header="Opening Hours" PlaceholderText="08:30 AM - 04:30 PM" Margin="10" x:Name="OpeningHoursTextBox"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Header="Country *" PlaceholderText="Portugal" Margin="10" x:Name="CountryTextBox"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Header="City *" PlaceholderText="Braganca" Margin="10" x:Name="CityTextBox"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Header="Street *" PlaceholderText="Alameda de Santa Apolonia" Margin="10" x:Name="StreetTextBox"/>
+            <Grid Grid.Row="4" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Assets/Fancy_Ornamental.png" Height="150" MinWidth="300" Margin="0,20,0,0"/>
+                <Image Grid.Column="2" Source="/Assets/Fancy_Ornamental.png" Height="150" MinWidth="300" Margin="0,20,0,0"/>
+            </Grid>
+                
         </Grid>
     </Grid>
 </Page>

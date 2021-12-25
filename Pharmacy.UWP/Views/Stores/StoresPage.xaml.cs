@@ -8,7 +8,6 @@ namespace Pharmacy.UWP.Views.Stores
     public sealed partial class StoresPage : Page
     {
         public StoresViewModel StoresViewModel { get; set; }
-        public bool manageOpened = false;
 
         public StoresPage()
         {
