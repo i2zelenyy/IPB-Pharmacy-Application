@@ -143,6 +143,9 @@
     <Compile Include="Views\SignIn\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Stores\ManageStoresPage.xaml.cs">
+      <DependentUpon>ManageStoresPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Stores\StoresPage.xaml.cs">
       <DependentUpon>StoresPage.xaml</DependentUpon>
     </Compile>
@@ -216,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SignIn\SignInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Stores\ManageStoresPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
