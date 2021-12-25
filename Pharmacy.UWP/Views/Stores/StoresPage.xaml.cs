@@ -13,19 +13,31 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Pharmacy.UWP.ViewModels.StoresViewModel;
+using Pharmacy.Infrastructure;
+using Pharmacy.Domain;
+using Pharmacy.Domain.Models;
+using System.Threading.Tasks;
 
 namespace Pharmacy.UWP.Views.Stores
 {
     public sealed partial class StoresPage : Page
     {
+        public StoresViewModel StoresViewModel { get; set; }
+
         public StoresPage()
         {           
             this.InitializeComponent();
             StoresViewModel = new StoresViewModel();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
             StoresViewModel.LoadAllAsync();
         }
 
-        public StoresViewModel StoresViewModel { get; set; }
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

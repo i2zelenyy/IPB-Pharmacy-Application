@@ -7,14 +7,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    xmlns:models="using:Pharmacy.Domain.Models"
-    x:Name="Page">
+    xmlns:models="using:Pharmacy.Domain.Models">
 
     <Grid>
 
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <TextBlock Text="{Binding ElementName=Page, Path=StoresViewModel.Name}"/>
-        </Grid>
+        <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" x:Name="StoresCommandBar">
+            <AppBarButton Icon="Add" Label="Add" Click="AddButton_Click" x:Name="AddButton"/>
+            <AppBarButton Icon="Edit" Label="Edit"/>
+        </CommandBar>
 
+        <ListView
+            x:Name="BaseExample"
+            Grid.Row="1" ItemsSource="{x:Bind StoresViewModel.Stores}" Background="LightPink"
+            BorderThickness="1"
+            BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"
+            Width="350"
+            Height="400"
+            HorizontalAlignment="Left">
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:Stores">
+                    <TextBlock Text="{x:Bind Name}" x:Phase="1" Margin="0,5,0,5"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
     </Grid>
 </Page>
