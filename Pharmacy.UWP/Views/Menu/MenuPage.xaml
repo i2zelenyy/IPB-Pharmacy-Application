@@ -17,6 +17,7 @@
             IsPaneOpen="False"
             OpenPaneLength="230"
             Loaded="Menu_Loaded"
+            ItemInvoked="Menu_ItemInvoked"
             SelectionChanged="Menu_SelectionChanged">
 
             <NavigationView.PaneHeader>

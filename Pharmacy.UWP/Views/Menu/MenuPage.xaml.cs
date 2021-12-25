@@ -29,7 +29,7 @@ namespace Pharmacy.UWP.Views.Menu
 
         private void Menu_Loaded(object sender, RoutedEventArgs e)
         {
-            Menu.SelectedItem = HomePageItem;
+            Menu.SelectedItem = HomePageItem;           
         }
 
         // Tapped events fix the problem accuring when navigation goes through top-bottom menus --> it fixes selection problem
@@ -60,6 +60,35 @@ namespace Pharmacy.UWP.Views.Menu
         private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Menu.SelectedItem = SignOutItem;
+        }
+
+        private void Menu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            NavigationViewItem nvi = (NavigationViewItem)args.InvokedItemContainer;
+            if (nvi != null)
+            {
+                switch (nvi.Tag)
+                {
+                    case "HomePage":
+                        frame.Navigate(typeof(HomePage));
+                        Page_Header.Text = "Home";
+                        break;
+                    case "MedicinePage":
+                        frame.Navigate(typeof(MedicinePage));
+                        Page_Header.Text = "Medicine";
+                        break;
+
+                    case "BasketPage":
+                        frame.Navigate(typeof(BasketPage));
+                        Page_Header.Text = "Basket";
+                        break;
+
+                    case "StoresPage":
+                        frame.Navigate(typeof(StoresPage));
+                        Page_Header.Text = "Stores";
+                        break;
+                }
+            }
         }
 
         private void Menu_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
