@@ -14,6 +14,7 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
     {
         public ObservableCollection<Stores> Stores { get; set; }
 
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
@@ -43,11 +44,12 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
         {
             using (IUnitOfWork uow = new UnitOfWork())
             {
-                Stores store = new Stores {
-                                           Name = Name, Street = Street,
-                                           City = City, Country = Country,
-                                           Telephone = Telephone, OpeningHours = OpeningHours
-                                           };
+                Stores store = new Stores
+                {
+                    Name = Name, Street = Street,
+                    City = City, Country = Country,
+                    Telephone = Telephone, OpeningHours = OpeningHours
+                };
                 uow.StoresRepository.Create(store);
                 await uow.SaveAsync();
             }
@@ -59,12 +61,10 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
             {
                 Stores store = new Stores
                 {
-                    Name = Name,
-                    Street = Street,
-                    City = City,
-                    Country = Country,
-                    Telephone = Telephone,
-                    OpeningHours = OpeningHours
+                    Id = Id,
+                    Name = Name, Street = Street,
+                    City = City, Country = Country,
+                    Telephone = Telephone, OpeningHours = OpeningHours
                 };
                 uow.StoresRepository.Delete(store);
                 await uow.SaveAsync();
