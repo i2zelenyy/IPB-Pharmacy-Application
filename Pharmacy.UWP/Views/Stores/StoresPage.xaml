@@ -62,10 +62,12 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
+
                 <AppBarButton Icon="Add" Label="Add" Click="AddButton_Click" x:Name="AddButton" BorderBrush="Black" BorderThickness="1"/>
                 <AppBarButton Icon="Edit" Label="Edit" Click="EditButton_Click" x:Name="EditButton" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+                <AppBarButton Icon="Delete" Label="Delete" Click="DeleteButton_Click" x:Name="DeleteButton" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
             </Grid>
             
         </Grid>
