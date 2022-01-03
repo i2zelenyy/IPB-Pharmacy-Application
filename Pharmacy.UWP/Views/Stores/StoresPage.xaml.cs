@@ -62,6 +62,7 @@ namespace Pharmacy.UWP.Views.Stores
             try
             {
                 await StoresViewModel.DeleteStoreAsync();
+                Frame.Navigate(this.GetType());
             }
             catch
             {
