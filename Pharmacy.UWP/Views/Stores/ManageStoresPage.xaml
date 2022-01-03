@@ -41,13 +41,13 @@
             <AppBarButton Icon="Save" Label="Save" x:Name="SaveButton" Grid.Column="1" BorderBrush="Black" Click="SaveButton_Click">
                 <AppBarButton.Flyout>
                     <Flyout>
-                        <Grid Height="100" Width="110" Background="#d8d9d0" CornerRadius="10">
+                        <Grid Height="130" Width="130" Background="#d8d9d0" CornerRadius="10">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="65"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBlock Style="{ThemeResource BaseTextBlockStyle}" x:Name="SaveMessageBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <AppBarButton Grid.Row="1" x:Name="SaveConfirmationButton" Click="SaveConfirmationButton_Click"  Icon="Accept" CornerRadius="10" Margin="20,0,0,0" Label="YES"/>
+                            <AppBarButton Grid.Row="1" x:Name="SaveConfirmationButton" Click="SaveConfirmationButton_Click"  Icon="Accept" CornerRadius="10" Margin="30,0,0,0" Label="YES"/>
                         </Grid>
                     </Flyout>
                 </AppBarButton.Flyout>

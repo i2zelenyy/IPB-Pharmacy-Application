@@ -70,5 +70,24 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
                 await uow.SaveAsync();
             }
         }
+
+        internal async Task UpdateStoreAsync()
+        {
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                Stores store = new Stores
+                {
+                    Id = Id,
+                    Name = Name,
+                    Street = Street,
+                    City = City,
+                    Country = Country,
+                    Telephone = Telephone,
+                    OpeningHours = OpeningHours
+                };
+                uow.StoresRepository.Update(store);
+                await uow.SaveAsync();
+            }
+        }
     }
 }

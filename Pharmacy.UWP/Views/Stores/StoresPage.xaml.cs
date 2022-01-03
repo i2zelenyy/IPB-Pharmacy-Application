@@ -10,7 +10,8 @@ namespace Pharmacy.UWP.Views.Stores
     {
 
         public StoresViewModel StoresViewModel { get; set; }
-        
+        Domain.Models.Stores selectedStore;
+
         public StoresPage()
         {
             this.InitializeComponent();
@@ -24,17 +25,28 @@ namespace Pharmacy.UWP.Views.Stores
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ManageStoresPage), AddButton.Label as string);
+            List<object> data = new List<object>();
+            data.Add(selectedStore);
+            data.Add(AddButtonText.Text);
+
+            this.Frame.Navigate(typeof(ManageStoresPage), data);
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ManageStoresPage), EditButton.Label);          
+            if (selectedStore != null)
+            {
+                List<object> data = new List<object>();
+                data.Add(selectedStore);
+                data.Add(EditButtonText.Text);
+
+                this.Frame.Navigate(typeof(ManageStoresPage), data);
+            }    
         }
 
         private void StoresListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Domain.Models.Stores selectedStore = (Domain.Models.Stores)StoresListView.SelectedItem;
+            selectedStore = (Domain.Models.Stores)StoresListView.SelectedItem;
 
             StoresViewModel.Id = selectedStore.Id;
             StoresViewModel.Name = selectedStore.Name;
@@ -45,7 +57,7 @@ namespace Pharmacy.UWP.Views.Stores
             StoresViewModel.OpeningHours = selectedStore.OpeningHours;            
         }
 
-        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -53,9 +65,8 @@ namespace Pharmacy.UWP.Views.Stores
             }
             catch
             {
-              
-            }     
-        }
 
+            }
+        }
     }
 }

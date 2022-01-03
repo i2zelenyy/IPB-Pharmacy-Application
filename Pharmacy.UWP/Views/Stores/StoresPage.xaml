@@ -65,15 +65,59 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <AppBarButton Icon="Add" Label="Add" Click="AddButton_Click" x:Name="AddButton" BorderBrush="Black" BorderThickness="1"/>
-                <AppBarButton Icon="Edit" Label="Edit" Click="EditButton_Click" x:Name="EditButton" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
-                <AppBarButton Icon="Delete" Label="Delete" Click="DeleteButton_Click" x:Name="DeleteButton" BorderBrush="Black" BorderThickness="1" Grid.Column="2"/>
+                <Button Click="AddButton_Click" x:Name="AddButton" BorderBrush="Black" BorderThickness="2" Height="53" Width="60" Background="Bisque">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <FontIcon Glyph="&#xE710;"/>
+                        <TextBlock Grid.Row="1" x:Name="AddButtonText" Text="Add" FontSize="12" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </Button>
+
+                <Button Click="EditButton_Click" x:Name="EditButton" BorderBrush="Black" BorderThickness="2" Height="53" Width="60" Background="Bisque" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <FontIcon Glyph="&#xE70F;"/>
+                        <TextBlock Grid.Row="1" x:Name="EditButtonText" Text="Edit" FontSize="12" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </Button>
+
+                <Button BorderBrush="Black" BorderThickness="2" Grid.Column="2" Height="53" Width="60" Background="Bisque">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <FontIcon Glyph="&#xE74D;"/>
+                        <TextBlock Grid.Row="1" Text="Delete" FontSize="12" VerticalAlignment="Bottom"/>
+                    </Grid>
+                    
+                    <Button.Flyout>
+                        <Flyout>
+                            <Grid Height="100" Width="130" Background="#d8d9d0" CornerRadius="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Would you like to delete this record?" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <AppBarButton Grid.Row="1" x:Name="DeleteConfirmationButton" Click="DeleteConfirmationButton_Click" Icon="Accept" CornerRadius="10" Margin="30,0,0,0" Label="YES"/>
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                
             </Grid>
             
         </Grid>
         
-
-
         <ListView
             x:Name="StoresListView"
             Grid.Row="1" ItemsSource="{x:Bind StoresViewModel.Stores}" Background="FloralWhite"
