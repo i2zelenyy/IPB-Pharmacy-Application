@@ -23,7 +23,8 @@ namespace Pharmacy.Infrastructure.Repositories
         }
 
         public T Delete(T e)
-        {
+        {         
+            _dbContext.Entry(e).State = EntityState.Deleted;
             _dbContext.Remove(e);
             return e;
         }

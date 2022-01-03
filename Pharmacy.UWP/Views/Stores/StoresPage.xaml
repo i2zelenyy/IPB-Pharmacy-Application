@@ -75,41 +75,47 @@
         <ListView
             x:Name="StoresListView"
             Grid.Row="1" ItemsSource="{x:Bind StoresViewModel.Stores}" Background="FloralWhite"
-            BorderThickness="1" BorderBrush="Black" Margin="1">
-
+            BorderThickness="2" BorderBrush="Black" Margin="1" HorizontalAlignment="Stretch" SelectionChanged="StoresListView_SelectionChanged">
+            
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Stores">
-                    <Grid BorderThickness="1" BorderBrush="Black" Width="auto">
+                    <Grid Padding="10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Grid BorderThickness="1" BorderBrush="Black">
-                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Name}" TextWrapping="Wrap"/>
+                        <Grid BorderThickness="1" BorderBrush="Black" Margin="1">
+                            <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind Name}" TextWrapping="Wrap"/>
                         </Grid>
 
-                        <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+                        <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black" Margin="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Country}" TextWrapping="Wrap"/>
-                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind City}" TextWrapping="Wrap"  Grid.Column="1"/>
-                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Street}" TextWrapping="Wrap"  Grid.Column="2"/>
+                            <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind Country}" TextWrapping="Wrap"/>
+                            <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind City}" TextWrapping="Wrap"  Grid.Column="1"/>
+                            <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind Street}" TextWrapping="Wrap"  Grid.Column="2"/>
                         </Grid>
 
-                        <Grid Grid.Column="2" BorderThickness="1" BorderBrush="Black">
+                        <Grid Grid.Column="2" BorderThickness="1" BorderBrush="Black" Margin="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind Telephone}" TextWrapping="Wrap"/>
-                            <TextBlock FontSize="20"  HorizontalAlignment="Center" Margin="20" Text="{x:Bind OpeningHours}" TextWrapping="Wrap"  Grid.Column="1"/>
+                            <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind Telephone}" TextWrapping="Wrap"/>
+                            <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind OpeningHours}" TextWrapping="Wrap"  Grid.Column="1"/>
                         </Grid>
 
                     </Grid>

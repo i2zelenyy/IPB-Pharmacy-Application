@@ -41,7 +41,6 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
 
         internal async Task CreateStoreAsync()
         {
-
             using (IUnitOfWork uow = new UnitOfWork())
             {
                 Stores store = new Stores {
@@ -52,7 +51,24 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
                 uow.StoresRepository.Create(store);
                 await uow.SaveAsync();
             }
+        }
 
+        internal async Task DeleteStoreAsync()
+        {
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                Stores store = new Stores
+                {
+                    Name = Name,
+                    Street = Street,
+                    City = City,
+                    Country = Country,
+                    Telephone = Telephone,
+                    OpeningHours = OpeningHours
+                };
+                uow.StoresRepository.Delete(store);
+                await uow.SaveAsync();
+            }
         }
     }
 }
