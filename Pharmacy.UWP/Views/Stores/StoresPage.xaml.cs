@@ -46,19 +46,6 @@ namespace Pharmacy.UWP.Views.Stores
             }    
         }
 
-        private void StoresListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            selectedStore = (Domain.Models.Stores)StoresListView.SelectedItem;
-
-            StoresViewModel.Id = selectedStore.Id;
-            StoresViewModel.Name = selectedStore.Name;
-            StoresViewModel.Country = selectedStore.Country;
-            StoresViewModel.City = selectedStore.City;
-            StoresViewModel.Street = selectedStore.Street;
-            StoresViewModel.Telephone = selectedStore.Telephone;
-            StoresViewModel.OpeningHours = selectedStore.OpeningHours;            
-        }
-
         private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -71,5 +58,19 @@ namespace Pharmacy.UWP.Views.Stores
 
             }
         }
+
+        private void StoresListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedStore = (Domain.Models.Stores)StoresListView.SelectedItem;
+
+            StoresViewModel.Id = selectedStore.Id;
+            StoresViewModel.Name = selectedStore.Name;
+            StoresViewModel.Country = selectedStore.Country;
+            StoresViewModel.City = selectedStore.City;
+            StoresViewModel.Street = selectedStore.Street;
+            StoresViewModel.Telephone = selectedStore.Telephone;
+            StoresViewModel.OpeningHours = selectedStore.OpeningHours;
+        }
+
     }
 }

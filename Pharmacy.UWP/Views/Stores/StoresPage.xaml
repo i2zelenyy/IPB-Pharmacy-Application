@@ -33,19 +33,19 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid BorderThickness="1" BorderBrush="Black">
-                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Name"/>
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Name" TextWrapping="Wrap"/>
                 </Grid>
 
                 <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black">
-                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Country" />
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Country" TextWrapping="Wrap"/>
                 </Grid>
 
                 <Grid Grid.Column="2" BorderThickness="1" BorderBrush="Black">
-                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="City" />
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="City" TextWrapping="Wrap"/>
                 </Grid>
 
                 <Grid Grid.Column="3" BorderThickness="1" BorderBrush="Black">
-                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Street" />
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Street" TextWrapping="Wrap"/>
                 </Grid>
 
                 <Grid Grid.Column="4" BorderThickness="1" BorderBrush="Black">
