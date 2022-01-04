@@ -9,6 +9,112 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <Grid BorderThickness="1" BorderBrush="Black" Background="Bisque" Margin="1" Height="55">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid BorderThickness="1" BorderBrush="Black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Name"/>
+                </Grid>
+
+                <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Country" />
+                </Grid>
+
+                <Grid Grid.Column="2" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="City" />
+                </Grid>
+
+                <Grid Grid.Column="3" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Street" />
+                </Grid>
+
+                <Grid Grid.Column="4" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="0,2,0,0" Text="Telephone" TextWrapping="Wrap" />
+                </Grid>
+
+                <Grid Grid.Column="5" BorderThickness="1" BorderBrush="Black">
+                    <TextBlock FontSize="16" HorizontalAlignment="Center" Margin="0,2,0,0" Text="Opening Hours" TextWrapping="Wrap" />
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Click="AddButton_Click"  x:Name="AddButton" BorderBrush="Black" BorderThickness="2" Height="53" Width="60" Background="Bisque">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <FontIcon Glyph="&#xE710;"/>
+                        <TextBlock Grid.Row="1" x:Name="AddButtonText" Text="Add" FontSize="12" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </Button>
+
+                <Button Click="EditButton_Click"  x:Name="EditButton" BorderBrush="Black" BorderThickness="2" Height="53" Width="60" Background="Bisque" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <FontIcon Glyph="&#xE70F;"/>
+                        <TextBlock Grid.Row="1" x:Name="EditButtonText" Text="Edit" FontSize="12" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </Button>
+
+                <Button BorderBrush="Black" BorderThickness="2" Grid.Column="2" Height="53" Width="60" Background="Bisque">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <FontIcon Glyph="&#xE74D;"/>
+                        <TextBlock Grid.Row="1" Text="Delete" FontSize="12" VerticalAlignment="Bottom"/>
+                    </Grid>
+
+                    <Button.Flyout>
+                        <Flyout>
+                            <Grid Height="100" Width="130" Background="#d8d9d0" CornerRadius="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Would you like to delete this record?" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <AppBarButton Grid.Row="1" x:Name="DeleteConfirmationButton" Click="DeleteConfirmationButton_Click" Icon="Accept" CornerRadius="10" Margin="30,0,0,0" Label="YES"/>
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>
