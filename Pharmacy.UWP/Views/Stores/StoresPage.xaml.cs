@@ -3,6 +3,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Pharmacy.UWP.ViewModels.StoresViewModel;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Pharmacy.UWP.Views.Stores
 {
@@ -18,8 +19,9 @@ namespace Pharmacy.UWP.Views.Stores
             StoresViewModel = new StoresViewModel();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            await Task.Delay(100);
             StoresViewModel.LoadAllAsync();
         }
 
