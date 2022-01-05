@@ -14,6 +14,7 @@ namespace Pharmacy.Domain.Models
         public string Description { get; set; }
         public string Ingredients { get; set; }
         public string HowToUse { get; set; }
+        public byte[] MedicineImage { get; set; }
 
         public List<Baskets> Baskets { get; set; }
 
@@ -23,8 +24,8 @@ namespace Pharmacy.Domain.Models
         }
 
         public Medicine(
-                        string category, string name, string brand,
-                        float price, string description, string ingredients, string howToUse
+                        string category, string name, string brand, float price,
+                        string description, string ingredients, string howToUse, byte[] medicineImage
                         )
         {
             Category = category;
@@ -34,6 +35,7 @@ namespace Pharmacy.Domain.Models
             Description = description;
             Ingredients = ingredients;
             HowToUse = howToUse;
+            MedicineImage = medicineImage;
         }
     }
 }

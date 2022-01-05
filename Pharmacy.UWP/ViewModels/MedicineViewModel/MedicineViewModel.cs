@@ -22,6 +22,7 @@ namespace Pharmacy.UWP.ViewModels.MedicineViewModel
         public string Description { get; set; }
         public string Ingredients { get; set; }
         public string HowToUse { get; set; }
+        public byte[] MedicineImage { get; set; }
 
         public MedicineViewModel()
         {
@@ -53,7 +54,8 @@ namespace Pharmacy.UWP.ViewModels.MedicineViewModel
                     Price = Price,
                     Description = Description,
                     Ingredients = Ingredients,
-                    HowToUse = HowToUse
+                    HowToUse = HowToUse,
+                    MedicineImage = MedicineImage
                 };
                 uow.MedicineRepository.Create(medicine);
                 await uow.SaveAsync();
@@ -73,7 +75,8 @@ namespace Pharmacy.UWP.ViewModels.MedicineViewModel
                     Price = Price,
                     Description = Description,
                     Ingredients = Ingredients,
-                    HowToUse = HowToUse
+                    HowToUse = HowToUse,
+                    MedicineImage = MedicineImage
                 };
                 uow.MedicineRepository.Delete(medicine);
                 await uow.SaveAsync();
@@ -93,7 +96,8 @@ namespace Pharmacy.UWP.ViewModels.MedicineViewModel
                     Price = Price,
                     Description = Description,
                     Ingredients = Ingredients,
-                    HowToUse = HowToUse
+                    HowToUse = HowToUse,
+                    MedicineImage = MedicineImage
                 };
                 uow.MedicineRepository.Update(medicine);
                 await uow.SaveAsync();

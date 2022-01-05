@@ -67,6 +67,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Grid Background="FloralWhite" Grid.ColumnSpan="2">
@@ -83,12 +84,48 @@
             </Grid>
 
             <TextBox Grid.Row="1" Header="Name *" PlaceholderText="Alka-Seltzer original tablets (20 tablets)" Margin="10" x:Name="NameTextBox"/>
-            <TextBox Grid.Row="2" Header="Category *" PlaceholderText="Pain relief" Margin="10" x:Name="CategoryTextBox"/>
-            <TextBox Grid.Row="3" Header="Brand *" PlaceholderText="Alka-Seltzer" Margin="10" x:Name="BrandTextBox"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Header="Price *" PlaceholderText="5€" Margin="10" x:Name="PriceTextBox"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Header="Description" PlaceholderText="..." Margin="10" x:Name="DescriptionTextBox"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Header="Ingredients" PlaceholderText="..." Margin="10" x:Name="IngredientsTextBox"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Header="How To Use" PlaceholderText="..." Margin="10" x:Name="HowToUseTextBox"/>
+
+            <Grid Grid.Row="2" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="2" Margin="10" Width="300">
+                
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                    <Grid BorderBrush="Black" BorderThickness="1">
+                        <TextBlock Text="Medicine Image" Margin="25,15,0,0"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                            <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                            <AppBarButton Icon="Attach" Label="Attach" x:Name="AttachButton" Click="AttachButton_Click"/>
+                            <AppBarButton Grid.Column="1" Icon="Clear"  Label="Clear" x:Name="ClearButton" Click="ClearButton_Click" HorizontalAlignment="Right"/>
+                        </Grid>
+                        
+                    </Grid>
+
+                <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="1" Width="150" Margin="5">
+                    <Image x:Name="MedicineImage"/>
+                </Grid>
+                
+                
+            </Grid>
+            
+            <TextBox Grid.Column="1" Grid.Row="1" Header="Category *" PlaceholderText="Pain relief" Margin="10" x:Name="CategoryTextBox"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Header="Brand *" PlaceholderText="Alka-Seltzer" Margin="10" x:Name="BrandTextBox"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Header="Price *" PlaceholderText="5€" Margin="10" x:Name="PriceTextBox"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Header="Details" PlaceholderText="..." Margin="10"/>
+
             
             <Grid Grid.Row="5" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
