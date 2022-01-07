@@ -25,13 +25,13 @@
             <AppBarButton Icon="Add" Label="Add" x:Name="AddButton" Grid.Column="1" BorderBrush="Black" Click="AddButton_Click">
                 <AppBarButton.Flyout>
                     <Flyout>
-                        <Grid Height="100" Width="110" Background="#d8d9d0" CornerRadius="10">
+                        <Grid Height="100" Width="130" Background="#d8d9d0" CornerRadius="10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="45"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBlock Style="{ThemeResource BaseTextBlockStyle}" x:Name="AddMessageBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            <AppBarButton Grid.Row="1" x:Name="AddConfirmationButton" Click="AddConfirmationButton_Click" Icon="Accept" CornerRadius="10" Margin="20,0,0,0" Label="YES"/>
+                            <AppBarButton Grid.Row="1" x:Name="AddConfirmationButton" Click="AddConfirmationButton_Click" Icon="Accept" CornerRadius="10" Margin="30,0,0,0" Label="YES"/>
                         </Grid>
                     </Flyout>
                 </AppBarButton.Flyout>
@@ -122,11 +122,38 @@
             </Grid>
             
             <TextBox Grid.Column="1" Grid.Row="1" Header="Category *" PlaceholderText="Pain relief" Margin="10" x:Name="CategoryTextBox"/>
-            <TextBox Grid.Column="1" Grid.Row="2" Header="Brand *" PlaceholderText="Alka-Seltzer" Margin="10" x:Name="BrandTextBox"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Header="Price *" PlaceholderText="5€" Margin="10" x:Name="PriceTextBox"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Header="Details" PlaceholderText="..." Margin="10"/>
-
             
+            <TextBox Grid.Column="1" Grid.Row="2" Header="Brand *" PlaceholderText="Alka-Seltzer" Margin="10" x:Name="BrandTextBox"/>
+            
+            <TextBox Grid.Column="1" Grid.Row="3" Header="Price in € *" PlaceholderText="3.25" Margin="10" x:Name="PriceTextBox"/>
+
+            <Button  Grid.Column="1" Grid.Row="4" x:Name="Button" BorderBrush="Black" BorderThickness="2" Height="53" Width="60" Background="Bisque" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="27"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <FontIcon Glyph="&#xe712;"/>
+                    <TextBlock Grid.Row="1" Text="More" FontSize="12" VerticalAlignment="Bottom"/>
+                </Grid>
+
+                <Button.Flyout>
+                    <Flyout>
+                        <Grid Height="400" Width="400" Background="#d8d9d0" CornerRadius="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBox x:Name="DescriptionTextBox" Header="Description" Margin="5"/>
+                            <TextBox Grid.Row="1" x:Name="IngredientsTextBox" Header="Ingredients" Margin="5"/>
+                            <TextBox Grid.Row="2" x:Name="HowToUseTextBox" Header="How to Use" Margin="5"/>
+                        </Grid>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+
             <Grid Grid.Row="5" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

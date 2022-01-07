@@ -114,6 +114,18 @@ namespace Pharmacy.UWP.Views.Stores
 
                 if (StreetTextBox.Text == "")
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
+
+                if (NameTextBox.Text != "")
+                    NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
+
+                if (CountryTextBox.Text != "")
+                    CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
+
+                if (CityTextBox.Text != "")
+                    CityTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
+
+                if (StreetTextBox.Text != "")
+                    StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
                 
         }
@@ -191,6 +203,18 @@ namespace Pharmacy.UWP.Views.Stores
 
                 if (StreetTextBox.Text == "")
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
+
+                if (NameTextBox.Text != "")
+                    NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
+
+                if (CountryTextBox.Text != "")
+                    CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
+
+                if (CityTextBox.Text != "")
+                    CityTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
+
+                if (StreetTextBox.Text != "")
+                    StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
         }
 
