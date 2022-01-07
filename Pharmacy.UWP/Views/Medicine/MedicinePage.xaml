@@ -8,7 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     xmlns:models="using:Pharmacy.Domain.Models">
-
+    
+    <Page.Resources>
+        <local:ToBitmapConverter x:Key="ToBitmapConverter"/>
+    </Page.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -136,15 +140,22 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Medicine">
-                    <Grid Padding="10">
+                    <Grid Padding="10" BorderThickness="1" BorderBrush="Black" Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid BorderThickness="1" BorderBrush="Black" Margin="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            
                             <TextBlock FontSize="16"  HorizontalAlignment="Center" Margin="10" Text="{x:Bind Name}" TextWrapping="Wrap"/>
+                            <Image Grid.Row="1" x:Name="medicineImage" Source="{x:Bind MedicineImage, Converter={StaticResource ToBitmapConverter}}"/>
                         </Grid>
 
                         <Grid Grid.Column="1" BorderThickness="1" BorderBrush="Black" Margin="1">

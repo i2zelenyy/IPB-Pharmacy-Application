@@ -134,6 +134,7 @@
     <Compile Include="Views\Medicine\MedicinePage.xaml.cs">
       <DependentUpon>MedicinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Medicine\ToBitmapConverter.cs" />
     <Compile Include="Views\Menu\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
