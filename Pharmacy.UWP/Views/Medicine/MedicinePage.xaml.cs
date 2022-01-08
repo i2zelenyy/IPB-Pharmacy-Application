@@ -34,10 +34,9 @@ namespace Pharmacy.UWP.Views.Medicine
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            await Task.Delay(100);
-            MedicineViewModel.LoadAllAsync();
+            await MedicineViewModel.LoadAllAsync();
         }
-
+        
         private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
             try

@@ -21,8 +21,7 @@ namespace Pharmacy.UWP.Views.Stores
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            await Task.Delay(100);
-            StoresViewModel.LoadAllAsync();
+            await StoresViewModel.LoadAllAsync();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

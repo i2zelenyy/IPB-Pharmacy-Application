@@ -29,7 +29,7 @@ namespace Pharmacy.UWP.ViewModels.MedicineViewModel
             Medicine = new ObservableCollection<Medicine>();
         }
 
-        public async void LoadAllAsync()
+        public async Task LoadAllAsync()
         {
             using (IUnitOfWork uow = new UnitOfWork())
             {

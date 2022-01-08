@@ -27,7 +27,7 @@ namespace Pharmacy.UWP.ViewModels.StoresViewModel
             Stores = new ObservableCollection<Stores>();
         }
 
-        public async void LoadAllAsync()
+        public async Task LoadAllAsync()
         {
             using (IUnitOfWork uow = new UnitOfWork())
             {

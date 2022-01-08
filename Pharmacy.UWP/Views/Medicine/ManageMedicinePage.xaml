@@ -146,9 +146,9 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBox x:Name="DescriptionTextBox" Header="Description" Margin="5"/>
-                            <TextBox Grid.Row="1" x:Name="IngredientsTextBox" Header="Ingredients" Margin="5"/>
-                            <TextBox Grid.Row="2" x:Name="HowToUseTextBox" Header="How to Use" Margin="5"/>
+                            <TextBox x:Name="DescriptionTextBox" Header="Description" Margin="5" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                            <TextBox Grid.Row="1" x:Name="IngredientsTextBox" Header="Ingredients" Margin="5" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                            <TextBox Grid.Row="2" x:Name="HowToUseTextBox" Header="How to Use" Margin="5" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
                         </Grid>
                     </Flyout>
                 </Button.Flyout>

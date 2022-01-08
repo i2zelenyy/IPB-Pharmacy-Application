@@ -12,6 +12,22 @@ namespace Pharmacy.UWP.Views.Medicine
     public class ToBitmapConverter : IValueConverter
     {
         public BitmapImage _image;
+
+        public BitmapImage Converter(byte[] byte_image)
+        {
+            using (InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream())
+            {
+                using (DataWriter writer = new DataWriter(ms.GetOutputStreamAt(0)))
+                {
+                    writer.WriteBytes(byte_image);
+                    writer.StoreAsync();
+                }
+
+                var image = new BitmapImage();
+                image.SetSourceAsync(ms);
+                return image;
+            }
+        }
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             byte[] byte_image = (byte[])value;

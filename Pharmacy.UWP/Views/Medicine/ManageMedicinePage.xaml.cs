@@ -28,6 +28,7 @@ namespace Pharmacy.UWP.Views.Medicine
         public MedicineViewModel MedicineViewModel { get; set; }
         Domain.Models.Medicine selectedMedicine;
         private bool _error = false;
+        private bool _attached = false;
 
         public ManageMedicinePage()
         {
@@ -53,7 +54,11 @@ namespace Pharmacy.UWP.Views.Medicine
                 DescriptionTextBox.Text = selectedMedicine.Description;
                 IngredientsTextBox.Text = selectedMedicine.Ingredients;
                 HowToUseTextBox.Text = selectedMedicine.HowToUse;
+
+                ToBitmapConverter converter = new ToBitmapConverter();
+                MedicineImage.Source = converter.Converter(selectedMedicine.MedicineImage);                
             }
+
             else
             {
                 AddButton.Visibility = Visibility.Visible;
@@ -82,7 +87,7 @@ namespace Pharmacy.UWP.Views.Medicine
             if (PriceTextBox.Text != "")
                 try
                 {
-                    MedicineViewModel.Price = Convert.ToInt64(PriceTextBox.Text);
+                    MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
                 }
                 catch
                 {
@@ -113,7 +118,7 @@ namespace Pharmacy.UWP.Views.Medicine
                 {
                     try
                     {
-                        MedicineViewModel.Price = Convert.ToInt64(PriceTextBox.Text);
+                        MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
                         PriceTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
                     }
                     catch
@@ -145,7 +150,7 @@ namespace Pharmacy.UWP.Views.Medicine
                 {
                     try
                     {
-                        MedicineViewModel.Price = Convert.ToInt64(PriceTextBox.Text);
+                        MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
                     }
                     catch
                     {
@@ -176,9 +181,7 @@ namespace Pharmacy.UWP.Views.Medicine
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (selectedMedicine != null)
-            {
                 MedicineViewModel.Id = selectedMedicine.Id;
-            }
 
             if (NameTextBox.Text != "")
                 MedicineViewModel.Name = NameTextBox.Text;
@@ -198,7 +201,7 @@ namespace Pharmacy.UWP.Views.Medicine
             if (PriceTextBox.Text != "")
                 try
                 {
-                    MedicineViewModel.Price = Convert.ToInt64(PriceTextBox.Text);
+                    MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
                 }
                 catch
                 {
@@ -210,6 +213,9 @@ namespace Pharmacy.UWP.Views.Medicine
             MedicineViewModel.Description = DescriptionTextBox.Text;
             MedicineViewModel.Ingredients = IngredientsTextBox.Text;
             MedicineViewModel.HowToUse = HowToUseTextBox.Text;
+
+            if (_attached == false)
+                MedicineViewModel.MedicineImage = selectedMedicine.MedicineImage;
 
             if (_error == false)
             {
@@ -229,7 +235,7 @@ namespace Pharmacy.UWP.Views.Medicine
                 {
                     try
                     {
-                        MedicineViewModel.Price = Convert.ToInt64(PriceTextBox.Text);
+                        MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
                         PriceTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
                     }
                     catch
@@ -260,7 +266,7 @@ namespace Pharmacy.UWP.Views.Medicine
                 {
                     try
                     {
-                        MedicineViewModel.Price = Convert.ToInt64(PriceTextBox.Text);
+                        MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
                     }
                     catch
                     {
@@ -290,6 +296,7 @@ namespace Pharmacy.UWP.Views.Medicine
 
         private async void AttachButton_Click(object sender, RoutedEventArgs e)
         {
+            _attached = true;
             byte[] fileBytes = null;
 
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
@@ -303,23 +310,30 @@ namespace Pharmacy.UWP.Views.Medicine
 
             BitmapImage image = new BitmapImage();
 
-            using (IRandomAccessStreamWithContentType stream = await file.OpenReadAsync())
+            if (file != null)
             {
-                fileBytes = new byte[stream.Size];
-                using (DataReader reader = new DataReader(stream))
+                using (IRandomAccessStreamWithContentType stream = await file.OpenReadAsync())
                 {
-                    await reader.LoadAsync((uint)stream.Size);
-                    reader.ReadBytes(fileBytes);
-                    MedicineImage.Source = image;
-                    MedicineViewModel.MedicineImage = fileBytes;
+                    fileBytes = new byte[stream.Size];
+                    using (DataReader reader = new DataReader(stream))
+                    {
+                        await reader.LoadAsync((uint)stream.Size);
+                        reader.ReadBytes(fileBytes);
+                        MedicineImage.Source = image;
+                        MedicineViewModel.MedicineImage = fileBytes;
+                    }
+                }
+
+                using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read))
+                {
+                    await image.SetSourceAsync(stream);
                 }
             }
-
-            using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read))
+            else
             {
-                await image.SetSourceAsync(stream);
+                MedicineViewModel.MedicineImage = null;
+                MedicineImage.Source = null;
             }
-
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
