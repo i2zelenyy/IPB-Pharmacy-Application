@@ -155,9 +155,15 @@ namespace Pharmacy.UWP.Views.Registration
         {
             if (CreateMessageBox.Text == "Do you want to create the account?")
             {
+                UsersViewModel.IsAdmin = false;
                 await UsersViewModel.CreateUserAsync();
                 this.Frame.GoBack();
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
         }
     }
 }

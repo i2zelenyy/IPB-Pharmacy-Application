@@ -15,7 +15,16 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Image Source="/Assets/Pharmacy_Logo.scale-200.png" Margin="10"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition  Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <AppBarButton Name="BackButton" BorderBrush="Black" BorderThickness="1" Icon="Back" CornerRadius="5" Margin="5" Width="70" Height="50" Click="BackButton_Click"/>
+            <Image Grid.Column="1" Source="/Assets/Pharmacy_Logo.scale-200.png" Margin="210,0,0,0"/>
+
+        </Grid>
 
         <TextBlock Grid.Row="1" Text="Create your own account" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center"/>
 
