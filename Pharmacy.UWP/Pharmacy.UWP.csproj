@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="ViewModels\MedicineViewModel\MedicineViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel\StoresViewModel.cs" />
+    <Compile Include="ViewModels\UsersViewModel\UsersViewModel.cs" />
     <Compile Include="Views\Basket\BasketPage.xaml.cs">
       <DependentUpon>BasketPage.xaml</DependentUpon>
     </Compile>
