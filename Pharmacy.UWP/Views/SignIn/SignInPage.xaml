@@ -8,7 +8,47 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="30" Width="400" Height="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Assets/Pharmacy_Logo.scale-200.png" Margin="10"/>
+
+        <TextBlock Grid.Row="1" Text="Login to your account" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+
+        <TextBox Grid.Row="2" x:Name="UsernameBox" Header="Username" Margin="30,30,30,15" Height="55"/>
+
+        <PasswordBox  Grid.Row="3" x:Name="PasswordBox" Header="Password" Margin="30,0,30,25" Height="55"/>
+
+        <Grid Grid.Row="4" Margin="30,0,30,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox x:Name="CheckBox" Content="Remember me" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Margin="15,0,0,0"/>
+            <Button Grid.Column="1" x:Name="LoginButton" Content="Login" CornerRadius="5" HorizontalAlignment="Center" Width="100" Background="LightSkyBlue" BorderBrush="Black" BorderThickness="2" Click="LoginButton_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="5" Margin="30,55,30,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <HyperlinkButton Content="Create new account" HorizontalAlignment="Center" x:Name="RegistrationButton" Click="RegistrationButton_Click"/>
+            <TextBlock Grid.Column="1" Text="Missing data!" Foreground="Red" FontSize="20" Margin="30,0,0,0" FontWeight="SemiBold" Visibility="Collapsed" x:Name="ErrorText"/>
+        </Grid>
+        
+        
+        <TextBlock Grid.Row="6" Text="Braganca Pharmacy" FontWeight="ExtraLight" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,45,5,0"/>
 
     </Grid>
 </Page>
