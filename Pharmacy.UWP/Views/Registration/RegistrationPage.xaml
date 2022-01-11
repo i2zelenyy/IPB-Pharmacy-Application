@@ -8,7 +8,73 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="30" Width="700" Height="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Assets/Pharmacy_Logo.scale-200.png" Margin="10"/>
+
+        <TextBlock Grid.Row="1" Text="Create your own account" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="2" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid  Margin="30,0,30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="FirstNameTextBox" Header="First name *" PlaceholderText="Ivan" Height="55"/>
+                <TextBox Grid.Row="1" x:Name="LastNameTextBox" Header="Last name *" PlaceholderText="Zelenyy" Height="55"/>
+                <TextBox Grid.Row="2" x:Name="DateOfBirthTextBox" Header="Birth date *" PlaceholderText="13 November 1973" Height="55"/>
+                <TextBox Grid.Row="3" x:Name="TelephoneTextBox" Header="Telephone" PlaceholderText="+351 XXX-XXX-XXX" Height="55"/>
+                <TextBox Grid.Row="4" x:Name="StreetTextBox" Header="Street" PlaceholderText="Alameda de Santa Apolonia" Height="55"/>
+
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="30,0,30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="UsernameTextBox" Header="Username *" PlaceholderText="Customer_1999" Height="55"/>
+                <PasswordBox Grid.Row="1" x:Name="PasswordBox_1" Header="Password *" PlaceholderText="abc123..." Height="55"/>
+                <PasswordBox Grid.Row="2" x:Name="PasswordBox_2" Header="Repeat password *" Height="55"/>
+                <TextBox Grid.Row="3" x:Name="EmailTextBox" Header="Email" Height="55" PlaceholderText="example@gmail.com"/>
+
+                <Button Grid.Row="4" x:Name="CreateButton" Content="Create" BorderBrush="Black" BorderThickness="2" Click="CreateButton_Click"  Margin="100,15,0,0" CornerRadius="5" Background="LightSkyBlue" Width="100">
+                    <Button.Flyout>
+                        <Flyout>
+                            <Grid Height="130" Width="130" Background="#d8d9d0" CornerRadius="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="65"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" x:Name="CreateMessageBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <AppBarButton Grid.Row="1" x:Name="CreateConfirmationButton" Click="CreateConfirmationButton_Click"  Icon="Accept" CornerRadius="10" Margin="30,0,0,0" Label="YES"/>
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+
+            </Grid>
+
+        </Grid>
 
     </Grid>
+    
 </Page>
