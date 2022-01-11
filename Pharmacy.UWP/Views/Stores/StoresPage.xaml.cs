@@ -21,6 +21,7 @@ namespace Pharmacy.UWP.Views.Stores
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            await Task.Delay(50);
             await StoresViewModel.LoadAllAsync();
         }
 
