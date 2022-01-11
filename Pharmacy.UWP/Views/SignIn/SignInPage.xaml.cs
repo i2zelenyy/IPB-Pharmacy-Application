@@ -78,7 +78,7 @@ namespace Pharmacy.UWP.Views.SignIn
 
             if (UsersViewModel.Users.Count == 1)
             {
-                this.Frame.Navigate(typeof(MenuPage), UsersViewModel);
+                this.Frame.Navigate(typeof(MenuPage), UsersViewModel.Users[0]);
             }
             else
                 ErrorText.Visibility = Visibility.Visible;

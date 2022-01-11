@@ -1,9 +1,11 @@
 ﻿using Pharmacy.UWP.Views.Basket;
 using Pharmacy.UWP.Views.Medicine;
 using Pharmacy.UWP.Views.Profile;
+using Pharmacy.UWP.Views.SignIn;
 using Pharmacy.UWP.Views.Stores;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,6 +24,8 @@ namespace Pharmacy.UWP.Views.Menu
 {
     public sealed partial class MenuPage : Page
     {
+        object authorisedUser;
+
         public MenuPage()
         {
             this.InitializeComponent();
@@ -30,6 +34,11 @@ namespace Pharmacy.UWP.Views.Menu
         private void Menu_Loaded(object sender, RoutedEventArgs e)
         {
             Menu.SelectedItem = HomePageItem;           
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            authorisedUser = e.Parameter;
         }
 
         // Tapped events fix the problem accuring when navigation goes through top-bottom menus --> it fixes selection problem
@@ -70,21 +79,21 @@ namespace Pharmacy.UWP.Views.Menu
                 switch (nvi.Tag)
                 {
                     case "HomePage":
-                        frame.Navigate(typeof(HomePage));
+                        frame.Navigate(typeof(HomePage), authorisedUser);
                         Page_Header.Text = "Home";
                         break;
                     case "MedicinePage":
-                        frame.Navigate(typeof(MedicinePage));
+                        frame.Navigate(typeof(MedicinePage), authorisedUser);
                         Page_Header.Text = "Medicine";
                         break;
 
                     case "BasketPage":
-                        frame.Navigate(typeof(BasketPage));
+                        frame.Navigate(typeof(BasketPage), authorisedUser);
                         Page_Header.Text = "Basket";
                         break;
 
                     case "StoresPage":
-                        frame.Navigate(typeof(StoresPage));
+                        frame.Navigate(typeof(StoresPage), authorisedUser);
                         Page_Header.Text = "Stores";
                         break;
                 }
@@ -99,28 +108,29 @@ namespace Pharmacy.UWP.Views.Menu
                 switch (nvi.Tag)
                 {
                     case "HomePage":
-                        frame.Navigate(typeof(HomePage));
+                        frame.Navigate(typeof(HomePage), authorisedUser);
                         Page_Header.Text = "Home";
                         break;
                     case "MedicinePage":
-                        frame.Navigate(typeof(MedicinePage));
+                        frame.Navigate(typeof(MedicinePage), authorisedUser);
                         Page_Header.Text = "Medicine";
                         break;
 
                     case "BasketPage":
-                        frame.Navigate(typeof(BasketPage));
+                        frame.Navigate(typeof(BasketPage), authorisedUser);
                         Page_Header.Text = "Basket";
                         break;
 
                     case "StoresPage":
-                        frame.Navigate(typeof(StoresPage));
+                        frame.Navigate(typeof(StoresPage), authorisedUser);
                         Page_Header.Text = "Stores";
                         break;
                     case "ProfilePage":
-                        frame.Navigate(typeof(ProfilePage));
+                        frame.Navigate(typeof(ProfilePage), authorisedUser);
                         Page_Header.Text = "Profile";
                         break;
                     case "SignOut":
+                        this.Frame.Navigate(typeof(SignInPage), authorisedUser);
                         break;
                 }
             }
