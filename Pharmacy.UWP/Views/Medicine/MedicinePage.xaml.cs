@@ -34,6 +34,7 @@ namespace Pharmacy.UWP.Views.Medicine
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            await Task.Delay(50);
             await MedicineViewModel.LoadAllAsync();
         }
         
