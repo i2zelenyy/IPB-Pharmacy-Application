@@ -45,7 +45,7 @@
 
                 <TextBox x:Name="FirstNameTextBox" Header="First name *" PlaceholderText="Ivan" Height="55"/>
                 <TextBox Grid.Row="1" x:Name="LastNameTextBox" Header="Last name *" PlaceholderText="Zelenyy" Height="55"/>
-                <TextBox Grid.Row="2" x:Name="DateOfBirthTextBox" Header="Birth date *" PlaceholderText="13 November 1973" Height="55"/>
+                <TextBox Grid.Row="2" x:Name="DateOfBirthTextBox" Header="Birth date *" PlaceholderText="DD/MM/YYYY" Height="55"/>
                 <TextBox Grid.Row="3" x:Name="TelephoneTextBox" Header="Telephone" PlaceholderText="+351 XXX-XXX-XXX" Height="55"/>
                 <TextBox Grid.Row="4" x:Name="StreetTextBox" Header="Street" PlaceholderText="Alameda de Santa Apolonia" Height="55"/>
 
@@ -68,18 +68,33 @@
                 <Button Grid.Row="4" x:Name="CreateButton" Content="Create" BorderBrush="Black" BorderThickness="2" Click="CreateButton_Click"  Margin="100,15,0,0" CornerRadius="5" Background="LightSkyBlue" Width="100">
                     <Button.Flyout>
                         <Flyout>
-                            <Grid Height="130" Width="130" Background="#d8d9d0" CornerRadius="10">
+                            <Grid Height="130" Width="150" Background="#d8d9d0" CornerRadius="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="65"/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Style="{ThemeResource BaseTextBlockStyle}" x:Name="CreateMessageBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <AppBarButton Grid.Row="1" x:Name="CreateConfirmationButton" Click="CreateConfirmationButton_Click"  Icon="Accept" CornerRadius="10" Margin="30,0,0,0" Label="YES"/>
+                                <AppBarButton Grid.Row="1" x:Name="CreateConfirmationButton" Click="CreateConfirmationButton_Click"  Icon="Accept" CornerRadius="10" Margin="40,0,0,0" Label="YES"/>
                             </Grid>
                         </Flyout>
                     </Button.Flyout>
                 </Button>
 
+                <Button Grid.Row="4" x:Name="SaveButton" Content="Update" BorderBrush="Black" BorderThickness="2" Click="SaveButton_Click"  Margin="100,15,0,0" CornerRadius="5" Background="LightSkyBlue" Width="100">
+                    <Button.Flyout>
+                        <Flyout>
+                            <Grid Height="130" Width="150" Background="#d8d9d0" CornerRadius="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="65"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" x:Name="SaveMessageBox" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <AppBarButton Grid.Row="1" x:Name="SaveConfirmationButton" Click="SaveConfirmationButton_Click" Icon="Accept" CornerRadius="10" Margin="40,0,0,0" Label="YES"/>
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                
             </Grid>
 
         </Grid>

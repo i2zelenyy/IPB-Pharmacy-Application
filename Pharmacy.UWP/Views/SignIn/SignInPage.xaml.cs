@@ -86,7 +86,11 @@ namespace Pharmacy.UWP.Views.SignIn
 
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RegistrationPage));
+            List<object> data = new List<object>();
+            data.Add("pass data");
+            data.Add("pass data");
+
+            this.Frame.Navigate(typeof(RegistrationPage), data);
         }
     }
 }

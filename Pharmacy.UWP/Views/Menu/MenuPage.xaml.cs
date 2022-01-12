@@ -64,6 +64,8 @@ namespace Pharmacy.UWP.Views.Menu
         private void ProfilePageItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Menu.SelectedItem = ProfilePageItem;
+            frame.Navigate(typeof(ProfilePage), authorisedUser);
+            Page_Header.Text = "Profile";
         }
 
         private void SignOutItem_Tapped(object sender, TappedRoutedEventArgs e)

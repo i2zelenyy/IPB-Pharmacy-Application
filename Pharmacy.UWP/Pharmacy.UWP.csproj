@@ -154,6 +154,10 @@
     <Compile Include="Views\Stores\StoresPage.xaml.cs">
       <DependentUpon>StoresPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Users\ManageUsersPage.xaml.cs">
+      <DependentUpon>ManageUsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Users\ToStringFromDateTimeConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -237,6 +241,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Stores\StoresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Users\ManageUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

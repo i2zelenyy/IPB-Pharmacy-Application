@@ -44,6 +44,8 @@ namespace Pharmacy.UWP.Views.Profile
             UsersViewModel.Id = authorisedUser.Id;
             UsersViewModel.IsAdmin = authorisedUser.IsAdmin;
 
+            UsernameTextBlock.Text = authorisedUser.Username;
+
             if (authorisedUser.IsAdmin == false)
             {
                 ManageUsersButton.IsEnabled = false;

@@ -16,12 +16,12 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1.2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Welcome," Style="{StaticResource SubheaderTextBlockStyle}" Margin="0,30,10,0" TextWrapping="NoWrap" HorizontalAlignment="Right"/>
-            <TextBlock Grid.Column="1" Text="Test binding" Style="{StaticResource SubheaderTextBlockStyle}" Margin="0,30,0,0" TextDecorations="Underline"/>
+            <TextBlock Grid.Column="1" x:Name="UsernameTextBlock" Style="{StaticResource SubheaderTextBlockStyle}" Margin="0,30,0,0" TextDecorations="Underline"/>
         </Grid>
 
         <Grid Grid.Row="1">
