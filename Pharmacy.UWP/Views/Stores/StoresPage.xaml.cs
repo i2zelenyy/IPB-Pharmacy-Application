@@ -21,8 +21,18 @@ namespace Pharmacy.UWP.Views.Stores
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            object data = e.Parameter;
+            Domain.Models.Users authorisedUser = (Domain.Models.Users)data;
+
             await Task.Delay(50);
             await StoresViewModel.LoadAllAsync();
+
+            if (authorisedUser.IsAdmin == false)
+            {
+                AddButton.IsEnabled = false;
+                EditButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+            }
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)

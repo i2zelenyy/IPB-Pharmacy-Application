@@ -24,6 +24,7 @@ namespace Pharmacy.UWP.Views.Menu
 {
     public sealed partial class MenuPage : Page
     {
+        List<object> data;
         object authorisedUser;
 
         public MenuPage()
@@ -39,6 +40,10 @@ namespace Pharmacy.UWP.Views.Menu
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             authorisedUser = e.Parameter;
+
+            data = new List<object>();
+            data.Add(authorisedUser);
+            data.Add("parameter1");
         }
 
         // Tapped events fix the problem accuring when navigation goes through top-bottom menus --> it fixes selection problem
@@ -85,7 +90,7 @@ namespace Pharmacy.UWP.Views.Menu
                         Page_Header.Text = "Home";
                         break;
                     case "MedicinePage":
-                        frame.Navigate(typeof(MedicinePage), authorisedUser);
+                        frame.Navigate(typeof(MedicinePage), data);
                         Page_Header.Text = "Medicine";
                         break;
 
@@ -114,7 +119,7 @@ namespace Pharmacy.UWP.Views.Menu
                         Page_Header.Text = "Home";
                         break;
                     case "MedicinePage":
-                        frame.Navigate(typeof(MedicinePage), authorisedUser);
+                        frame.Navigate(typeof(MedicinePage), data);
                         Page_Header.Text = "Medicine";
                         break;
 

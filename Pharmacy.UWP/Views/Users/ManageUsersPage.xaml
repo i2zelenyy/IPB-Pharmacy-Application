@@ -8,11 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     xmlns:models="using:Pharmacy.Domain.Models">
-
-    <Page.Resources>
-        <local:ToStringFromDateTimeConverter x:Key="ToStringFromDateTimeConverter"/>
-    </Page.Resources>
-    
+  
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

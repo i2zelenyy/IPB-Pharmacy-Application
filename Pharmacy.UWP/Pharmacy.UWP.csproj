@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BasketViewModel\BasketViewModel.cs" />
     <Compile Include="ViewModels\MedicineViewModel\MedicineViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel\StoresViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel\UsersViewModel.cs" />
@@ -135,7 +136,7 @@
     <Compile Include="Views\Medicine\MedicinePage.xaml.cs">
       <DependentUpon>MedicinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Medicine\ToBitmapConverter.cs" />
+    <Compile Include="Converters\ToBitmapConverter.cs" />
     <Compile Include="Views\Menu\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
@@ -157,7 +158,7 @@
     <Compile Include="Views\Users\ManageUsersPage.xaml.cs">
       <DependentUpon>ManageUsersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Users\ToStringFromDateTimeConverter.cs" />
+    <Compile Include="Converters\ToStringFromDateTimeConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

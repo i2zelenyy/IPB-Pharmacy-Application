@@ -89,7 +89,7 @@
                     </Grid>
                 </Button>
 
-                <Button BorderBrush="Black" BorderThickness="2" Grid.Column="2" Height="53" Width="60" Background="Bisque">
+                <Button x:Name="DeleteButton" BorderBrush="Black" BorderThickness="2" Grid.Column="2" Height="53" Width="60" Background="Bisque">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="27"/>

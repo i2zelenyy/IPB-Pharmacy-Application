@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Pharmacy.UWP.ViewModels.BasketViewModel;
+using Pharmacy.UWP.ViewModels.MedicineViewModel;
+using Pharmacy.UWP.Views.Medicine;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,18 +17,67 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Pharmacy.UWP.Views.Basket
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class BasketPage : Page
     {
+        public BasketViewModel BasketViewModel { get; set; }
+        public MedicineViewModel MedicineViewModel { get; set; }
+        Domain.Models.Baskets selectedMedicine;
+        Domain.Models.Users authorisedUser;
+
         public BasketPage()
         {
             this.InitializeComponent();
+            BasketViewModel = new BasketViewModel();
+            MedicineViewModel = new MedicineViewModel();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            object data = e.Parameter;
+            authorisedUser = (Domain.Models.Users)data;
+
+            await Task.Delay(50);
+            await BasketViewModel.LoadAllAsync();
+            await MedicineViewModel.LoadAllAsync();
+        }
+
+        private void BasketListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedMedicine = (Domain.Models.Baskets)BasketListView.SelectedItem;
+
+            BasketViewModel.Id = selectedMedicine.Id;
+            BasketViewModel.UserID = selectedMedicine.UserID;
+            BasketViewModel.MedicineID = selectedMedicine.MedicineID;
+            BasketViewModel.Quantity = selectedMedicine.Quantity;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<object> data = new List<object>();
+            data.Add(authorisedUser);
+            data.Add("Basket");
+
+            this.Frame.Navigate(typeof(MedicinePage), data);
+        }
+
+        private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await BasketViewModel.DeleteBasketAsync();
+                Frame.Navigate(this.GetType());
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void SummaryConfirmationButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

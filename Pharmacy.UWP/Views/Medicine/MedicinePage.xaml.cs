@@ -1,4 +1,5 @@
-﻿using Pharmacy.UWP.ViewModels.MedicineViewModel;
+﻿using Pharmacy.UWP.ViewModels.BasketViewModel;
+using Pharmacy.UWP.ViewModels.MedicineViewModel;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -24,18 +25,43 @@ namespace Pharmacy.UWP.Views.Medicine
     public sealed partial class MedicinePage : Page
     {
         public MedicineViewModel MedicineViewModel { get; set; }
+        public BasketViewModel BasketViewModel { get; set; }
+
         Domain.Models.Medicine selectedMedicine;
+        Domain.Models.Users authorisedUser;
+
+        bool _basketMode = false;
 
         public MedicinePage()
         {
             this.InitializeComponent();
             MedicineViewModel = new MedicineViewModel();
+            BasketViewModel = new BasketViewModel();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            List<object> data = (List<object>)e.Parameter;
+
+            authorisedUser = (Domain.Models.Users)data[0];
+
             await Task.Delay(50);
             await MedicineViewModel.LoadAllAsync();
+
+            if (authorisedUser.IsAdmin == false)
+            {
+                AddButton.IsEnabled = false;
+                EditButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+            }
+
+            if (data[1] == "Basket")
+            {
+                _basketMode = true;
+
+                EditButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+            }
         }
         
         private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)
@@ -63,13 +89,26 @@ namespace Pharmacy.UWP.Views.Medicine
             }
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            List<object> data = new List<object>();
-            data.Add(selectedMedicine);
-            data.Add(AddButtonText.Text);
+            if (_basketMode == true)
+            {
+                BasketViewModel.MedicineID = selectedMedicine.Id;
+                BasketViewModel.UserID = authorisedUser.Id;
+                BasketViewModel.Quantity = 1;
+                BasketViewModel.Users = authorisedUser;
 
-            this.Frame.Navigate(typeof(ManageMedicinePage), data);
+                await BasketViewModel.CreateBasketAsync();
+                this.Frame.GoBack();
+            }
+            else
+            {
+                List<object> data = new List<object>();
+                data.Add(selectedMedicine);
+                data.Add(AddButtonText.Text);
+
+                this.Frame.Navigate(typeof(ManageMedicinePage), data);
+            }
         }
 
         private void MedicineListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

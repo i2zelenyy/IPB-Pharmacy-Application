@@ -24,11 +24,13 @@ namespace Pharmacy.Domain.Models
 
         }
 
-        public Baskets(int quantity, int medicineID, int userID)
+        public Baskets(int quantity, int medicineID, int userID, Users users, Medicine medicine)
         {
             Quantity = quantity;
             MedicineID = medicineID;
             UserID = userID;
+            Users = users;
+            Medicine = medicine;
         }   
     }
 }

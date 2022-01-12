@@ -4,4 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pharmacy.UWP">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            <local:ToBitmapConverter x:Key="ToBitmapConverter"/>
+            <local:ToStringFromDateTimeConverter x:Key="ToStringFromDateTimeConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+    
 </Application>

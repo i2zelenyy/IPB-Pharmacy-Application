@@ -52,6 +52,8 @@ namespace Pharmacy.UWP.Views.Registration
                     PasswordBox_1.Password = selectedUser.Password;
                     TelephoneTextBox.Text = selectedUser.Telephone;
                     StreetTextBox.Text = selectedUser.Street;
+
+                    UsersViewModel.IsAdmin = selectedUser.IsAdmin;
                 }
                 else
                 {

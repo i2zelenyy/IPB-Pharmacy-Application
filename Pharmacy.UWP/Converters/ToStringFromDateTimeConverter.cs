@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
-namespace Pharmacy.UWP.Views.Users
+namespace Pharmacy.UWP
 {
     public class ToStringFromDateTimeConverter : IValueConverter
     {

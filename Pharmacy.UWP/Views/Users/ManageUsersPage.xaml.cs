@@ -37,16 +37,23 @@ namespace Pharmacy.UWP.Views.Users
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(RegistrationPage));
+            List<object> data = new List<object>();
+            data.Add("parameter1");
+            data.Add("parameter2");
+
+            Frame.Navigate(typeof(RegistrationPage), data);
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            List<object> data = new List<object>();
-            data.Add(selectedUser);
-            data.Add(EditButtonText.Text);
+            if (selectedUser != null)
+            {
+                List<object> data = new List<object>();
+                data.Add(selectedUser);
+                data.Add(EditButtonText.Text);
 
-            Frame.Navigate(typeof(RegistrationPage), data);
+                Frame.Navigate(typeof(RegistrationPage), data);
+            }
         }
 
         private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)

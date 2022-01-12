@@ -27,7 +27,7 @@ namespace Pharmacy.Domain.Models
         public Users(
                      string firstName, string lastName, DateTime dateOfBirth,
                      string username, string telephone, string street,
-                     string password, string email, bool isAdmin
+                     string password, string email, bool isAdmin, List<Baskets> baskets
                      )
         {
             FirstName = firstName;
@@ -39,6 +39,7 @@ namespace Pharmacy.Domain.Models
             Password = password;
             Email = email;
             IsAdmin = isAdmin;
+            Baskets = baskets;
         }
     }
 }

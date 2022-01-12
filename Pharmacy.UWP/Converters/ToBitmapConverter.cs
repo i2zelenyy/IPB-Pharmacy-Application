@@ -7,7 +7,7 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace Pharmacy.UWP.Views.Medicine
+namespace Pharmacy.UWP
 {
     public class ToBitmapConverter : IValueConverter
     {
