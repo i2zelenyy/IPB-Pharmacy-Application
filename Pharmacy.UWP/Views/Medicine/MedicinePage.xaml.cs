@@ -47,6 +47,7 @@ namespace Pharmacy.UWP.Views.Medicine
 
             await Task.Delay(50);
             await MedicineViewModel.LoadAllAsync();
+            await BasketViewModel.LoadAllAsync();
 
             if (authorisedUser.IsAdmin == false)
             {
@@ -96,9 +97,9 @@ namespace Pharmacy.UWP.Views.Medicine
                 BasketViewModel.MedicineID = selectedMedicine.Id;
                 BasketViewModel.UserID = authorisedUser.Id;
                 BasketViewModel.Quantity = 1;
-                BasketViewModel.Users = authorisedUser;
 
                 await BasketViewModel.CreateBasketAsync();
+
                 this.Frame.GoBack();
             }
             else

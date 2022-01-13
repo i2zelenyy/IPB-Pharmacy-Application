@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ToImageConverter.cs" />
+    <Compile Include="Converters\ToNameConverter.cs" />
+    <Compile Include="Converters\ToPriceConverter.cs" />
     <Compile Include="ViewModels\BasketViewModel\BasketViewModel.cs" />
     <Compile Include="ViewModels\MedicineViewModel\MedicineViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel\StoresViewModel.cs" />

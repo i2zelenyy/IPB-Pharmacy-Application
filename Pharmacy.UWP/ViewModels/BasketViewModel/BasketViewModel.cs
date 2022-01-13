@@ -20,6 +20,7 @@ namespace Pharmacy.UWP.ViewModels.BasketViewModel
         public int MedicineID { get; set; }
         public int Quantity { get; set; }
         public Users Users { get; set; }
+        public Medicine Medicine { get; set; }
 
         public BasketViewModel()
         {
@@ -48,7 +49,8 @@ namespace Pharmacy.UWP.ViewModels.BasketViewModel
                     UserID = UserID,
                     MedicineID = MedicineID,
                     Quantity = Quantity,
-                    Users = Users
+                    Users = Users,
+                    Medicine = Medicine
                 };
                 uow.BasketsRepository.Create(basket);
                 await uow.SaveAsync();
@@ -64,7 +66,9 @@ namespace Pharmacy.UWP.ViewModels.BasketViewModel
                     Id = Id,
                     UserID = UserID,
                     MedicineID = MedicineID,
-                    Quantity = Quantity
+                    Quantity = Quantity,
+                    Users = Users,
+                    Medicine = Medicine
                 };
                 uow.BasketsRepository.Delete(basket);
                 await uow.SaveAsync();

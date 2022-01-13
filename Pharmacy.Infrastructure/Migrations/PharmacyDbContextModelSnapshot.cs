@@ -31,14 +31,11 @@ namespace Pharmacy.Infrastructure.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsersId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MedicineID");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("Baskets");
                 });
@@ -176,7 +173,9 @@ namespace Pharmacy.Infrastructure.Migrations
 
                     b.HasOne("Pharmacy.Domain.Models.Users", "Users")
                         .WithMany("Baskets")
-                        .HasForeignKey("UsersId");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Pharmacy.Domain.Models.Cheques", b =>

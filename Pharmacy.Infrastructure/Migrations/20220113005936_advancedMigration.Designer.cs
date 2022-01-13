@@ -9,8 +9,8 @@ using Pharmacy.Infrastructure;
 namespace Pharmacy.Infrastructure.Migrations
 {
     [DbContext(typeof(PharmacyDbContext))]
-    [Migration("20211222032824_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220113005936_advancedMigration")]
+    partial class advancedMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,14 +33,11 @@ namespace Pharmacy.Infrastructure.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("UsersId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MedicineID");
 
-                    b.HasIndex("UsersId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("Baskets");
                 });
@@ -86,6 +83,9 @@ namespace Pharmacy.Infrastructure.Migrations
 
                     b.Property<string>("Ingredients")
                         .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("MedicineImage")
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
@@ -175,7 +175,9 @@ namespace Pharmacy.Infrastructure.Migrations
 
                     b.HasOne("Pharmacy.Domain.Models.Users", "Users")
                         .WithMany("Baskets")
-                        .HasForeignKey("UsersId");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Pharmacy.Domain.Models.Cheques", b =>

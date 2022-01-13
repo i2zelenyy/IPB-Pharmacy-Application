@@ -21,7 +21,17 @@ namespace Pharmacy.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Users>()
+                .HasMany<Baskets>(g => g.Baskets)
+                .WithOne(s => s.Users)
+                .HasForeignKey(s => s.UserID)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Medicine>()
+                .HasMany<Baskets>(g => g.Baskets)
+                .WithOne(s => s.Medicine)
+                .HasForeignKey(s => s.MedicineID)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

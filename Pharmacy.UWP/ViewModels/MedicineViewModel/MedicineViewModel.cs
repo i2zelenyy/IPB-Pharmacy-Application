@@ -42,6 +42,16 @@ namespace Pharmacy.UWP.ViewModels.MedicineViewModel
             }
         }
 
+        public async Task LoadByIDAsync(int MedicineID)
+        {
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                Medicine item = await uow.MedicineRepository.FindByIdAsync(MedicineID);
+
+                Medicine.Add(item);
+            }
+        }
+
         internal async Task CreateMedicineAsync()
         {
             using (IUnitOfWork uow = new UnitOfWork())

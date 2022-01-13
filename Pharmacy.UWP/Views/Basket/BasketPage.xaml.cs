@@ -23,6 +23,9 @@ namespace Pharmacy.UWP.Views.Basket
     {
         public BasketViewModel BasketViewModel { get; set; }
         public MedicineViewModel MedicineViewModel { get; set; }
+
+        object data;
+
         Domain.Models.Baskets selectedMedicine;
         Domain.Models.Users authorisedUser;
 
@@ -35,21 +38,20 @@ namespace Pharmacy.UWP.Views.Basket
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            object data = e.Parameter;
+            data = e.Parameter;
             authorisedUser = (Domain.Models.Users)data;
 
             await Task.Delay(50);
-            await BasketViewModel.LoadAllAsync();
-            await MedicineViewModel.LoadAllAsync();
+            await BasketViewModel.LoadAllAsync();             
         }
 
         private void BasketListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedMedicine = (Domain.Models.Baskets)BasketListView.SelectedItem;
 
-            BasketViewModel.Id = selectedMedicine.Id;
-            BasketViewModel.UserID = selectedMedicine.UserID;
-            BasketViewModel.MedicineID = selectedMedicine.MedicineID;
+            BasketViewModel.UserID = authorisedUser.Id;
+            BasketViewModel.MedicineID = selectedMedicine.Id;
+
             BasketViewModel.Quantity = selectedMedicine.Quantity;
         }
 
@@ -67,7 +69,7 @@ namespace Pharmacy.UWP.Views.Basket
             try
             {
                 await BasketViewModel.DeleteBasketAsync();
-                Frame.Navigate(this.GetType());
+                Frame.Navigate(this.GetType(), data);
             }
             catch
             {

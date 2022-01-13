@@ -8,6 +8,9 @@
         <ResourceDictionary>
             <local:ToBitmapConverter x:Key="ToBitmapConverter"/>
             <local:ToStringFromDateTimeConverter x:Key="ToStringFromDateTimeConverter"/>
+            <local:ToNameConverter x:Key="ToNameConverter"/>
+            <local:ToImageConverter x:Key="ToImageConverter"/>
+            <local:ToPriceConverter x:Key="ToPriceConverter"/>
         </ResourceDictionary>
     </Application.Resources>
     

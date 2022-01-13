@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Pharmacy.Infrastructure.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class advancedMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,8 @@ namespace Pharmacy.Infrastructure.Migrations
                     Price = table.Column<float>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Ingredients = table.Column<string>(nullable: true),
-                    HowToUse = table.Column<string>(nullable: true)
+                    HowToUse = table.Column<string>(nullable: true),
+                    MedicineImage = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,8 +74,7 @@ namespace Pharmacy.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Quantity = table.Column<int>(nullable: false),
                     MedicineID = table.Column<int>(nullable: false),
-                    UserID = table.Column<int>(nullable: false),
-                    UsersId = table.Column<int>(nullable: true)
+                    UserID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,11 +86,11 @@ namespace Pharmacy.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Baskets_Users_UsersId",
-                        column: x => x.UsersId,
+                        name: "FK_Baskets_Users_UserID",
+                        column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -125,9 +125,9 @@ namespace Pharmacy.Infrastructure.Migrations
                 column: "MedicineID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Baskets_UsersId",
+                name: "IX_Baskets_UserID",
                 table: "Baskets",
-                column: "UsersId");
+                column: "UserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cheques_BasketsId",
