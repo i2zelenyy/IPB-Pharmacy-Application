@@ -99,21 +99,24 @@ namespace Pharmacy.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    BasketsId = table.Column<int>(nullable: true),
-                    StoresId = table.Column<int>(nullable: true)
+                    Date = table.Column<DateTime>(nullable: false),
+                    Time = table.Column<string>(nullable: true),
+                    TotalPrice = table.Column<float>(nullable: false),
+                    StoresID = table.Column<int>(nullable: false),
+                    BasketsID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cheques", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cheques_Baskets_BasketsId",
-                        column: x => x.BasketsId,
+                        name: "FK_Cheques_Baskets_BasketsID",
+                        column: x => x.BasketsID,
                         principalTable: "Baskets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Cheques_Stores_StoresId",
-                        column: x => x.StoresId,
+                        name: "FK_Cheques_Stores_StoresID",
+                        column: x => x.StoresID,
                         principalTable: "Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -130,14 +133,14 @@ namespace Pharmacy.Infrastructure.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cheques_BasketsId",
+                name: "IX_Cheques_BasketsID",
                 table: "Cheques",
-                column: "BasketsId");
+                column: "BasketsID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cheques_StoresId",
+                name: "IX_Cheques_StoresID",
                 table: "Cheques",
-                column: "StoresId");
+                column: "StoresID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

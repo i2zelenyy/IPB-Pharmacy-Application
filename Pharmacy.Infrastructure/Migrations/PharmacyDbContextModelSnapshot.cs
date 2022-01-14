@@ -46,17 +46,26 @@ namespace Pharmacy.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("BasketsId")
+                    b.Property<int>("BasketsID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("StoresId")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("StoresID")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Time")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("TotalPrice")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BasketsId");
+                    b.HasIndex("BasketsID");
 
-                    b.HasIndex("StoresId");
+                    b.HasIndex("StoresID");
 
                     b.ToTable("Cheques");
                 });
@@ -182,11 +191,13 @@ namespace Pharmacy.Infrastructure.Migrations
                 {
                     b.HasOne("Pharmacy.Domain.Models.Baskets", "Baskets")
                         .WithMany("Cheques")
-                        .HasForeignKey("BasketsId");
+                        .HasForeignKey("BasketsID")
+                        .IsRequired();
 
                     b.HasOne("Pharmacy.Domain.Models.Stores", "Stores")
                         .WithMany("Cheques")
-                        .HasForeignKey("StoresId");
+                        .HasForeignKey("StoresID")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

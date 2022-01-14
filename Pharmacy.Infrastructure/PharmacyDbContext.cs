@@ -22,7 +22,7 @@ namespace Pharmacy.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Users>()
-                .HasMany<Baskets>(g => g.Baskets)
+                .HasMany<Baskets>(s => s.Baskets)
                 .WithOne(s => s.Users)
                 .HasForeignKey(s => s.UserID)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -32,6 +32,18 @@ namespace Pharmacy.Infrastructure
                 .WithOne(s => s.Medicine)
                 .HasForeignKey(s => s.MedicineID)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Stores>()
+                .HasMany<Cheques>(g => g.Cheques)
+                .WithOne(s => s.Stores)
+                .HasForeignKey(s => s.StoresID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Baskets>()
+                .HasMany<Cheques>(g => g.Cheques)
+                .WithOne(s => s.Baskets)
+                .HasForeignKey(s => s.BasketsID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

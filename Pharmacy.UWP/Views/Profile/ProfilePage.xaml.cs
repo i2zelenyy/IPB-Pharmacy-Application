@@ -81,7 +81,7 @@ namespace Pharmacy.UWP.Views.Profile
         {
             if (StreetTextBox.Text != "")
             {
-                UsersViewModel.Telephone = StreetTextBox.Text;
+                UsersViewModel.Street = StreetTextBox.Text;
                 await UsersViewModel.UpdateUserAsync();
             }
         }

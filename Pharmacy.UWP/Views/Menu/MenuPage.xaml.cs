@@ -100,7 +100,7 @@ namespace Pharmacy.UWP.Views.Menu
                         break;
 
                     case "StoresPage":
-                        frame.Navigate(typeof(StoresPage), authorisedUser);
+                        frame.Navigate(typeof(StoresPage), data);
                         Page_Header.Text = "Stores";
                         break;
                 }
@@ -129,7 +129,7 @@ namespace Pharmacy.UWP.Views.Menu
                         break;
 
                     case "StoresPage":
-                        frame.Navigate(typeof(StoresPage), authorisedUser);
+                        frame.Navigate(typeof(StoresPage), data);
                         Page_Header.Text = "Stores";
                         break;
                     case "ProfilePage":

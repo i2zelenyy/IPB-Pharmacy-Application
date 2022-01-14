@@ -1,5 +1,6 @@
 ﻿using Pharmacy.UWP.ViewModels.BasketViewModel;
 using Pharmacy.UWP.ViewModels.MedicineViewModel;
+using Pharmacy.UWP.Views.Cheques;
 using Pharmacy.UWP.Views.Medicine;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Pharmacy.UWP.Views.Basket
 
         object data;
 
-        Domain.Models.Baskets selectedMedicine;
+        Domain.Models.Baskets selectedItem;
         Domain.Models.Users authorisedUser;
 
         public BasketPage()
@@ -42,17 +43,37 @@ namespace Pharmacy.UWP.Views.Basket
             authorisedUser = (Domain.Models.Users)data;
 
             await Task.Delay(50);
-            await BasketViewModel.LoadAllAsync();             
+            await BasketViewModel.LoadBasketAsync(authorisedUser.Id);
+
+            TotalTextBlock.Text = TotalCount() + " €";
+        }
+
+        public string TotalCount()
+        {
+            ToPriceConverter toPriceConverter = new ToPriceConverter();
+            float result = 0;
+
+            foreach ( var basket in BasketViewModel.Baskets)
+            {
+                var temp = (Domain.Models.Baskets) basket;
+
+                int quantity = temp.Quantity;
+                float price = (float) toPriceConverter.ConvertToPrice(temp.MedicineID);
+                result += quantity * price;
+            }
+
+            return result.ToString();
         }
 
         private void BasketListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedMedicine = (Domain.Models.Baskets)BasketListView.SelectedItem;
+            selectedItem = (Domain.Models.Baskets)BasketListView.SelectedItem;
 
+            BasketViewModel.Id = selectedItem.Id;
             BasketViewModel.UserID = authorisedUser.Id;
-            BasketViewModel.MedicineID = selectedMedicine.Id;
+            BasketViewModel.MedicineID = selectedItem.MedicineID;
 
-            BasketViewModel.Quantity = selectedMedicine.Quantity;
+            BasketViewModel.Quantity = selectedItem.Quantity;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -79,6 +100,38 @@ namespace Pharmacy.UWP.Views.Basket
 
         private void SummaryConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
+            List<object> data = new List<object>();
+            data.Add(authorisedUser);
+            data.Add("");
+
+            Frame.Navigate(typeof(ChequesPage), data);
+        }
+
+        private async void AddQuantityButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedItem != null)
+            {
+                BasketViewModel.Quantity += 1;
+                await BasketViewModel.UpdateBasketAsync();
+                Frame.Navigate(this.GetType(), data);
+            }
+        }
+
+        private async void SubtractQuantityButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (BasketViewModel.Quantity > 1)
+                {
+                    BasketViewModel.Quantity -= 1;
+                    await BasketViewModel.UpdateBasketAsync();
+                    Frame.Navigate(this.GetType(), data);
+                }
+            }
+            catch
+            {
+
+            }
 
         }
     }

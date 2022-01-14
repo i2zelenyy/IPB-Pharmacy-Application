@@ -123,11 +123,18 @@
     <Compile Include="Converters\ToNameConverter.cs" />
     <Compile Include="Converters\ToPriceConverter.cs" />
     <Compile Include="ViewModels\BasketViewModel\BasketViewModel.cs" />
+    <Compile Include="ViewModels\ChequesViewModel\ChequesViewModel.cs" />
     <Compile Include="ViewModels\MedicineViewModel\MedicineViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel\StoresViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel\UsersViewModel.cs" />
     <Compile Include="Views\Basket\BasketPage.xaml.cs">
       <DependentUpon>BasketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cheques\ChequesPage.xaml.cs">
+      <DependentUpon>ChequesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cheques\ManageChequesPage.xaml.cs">
+      <DependentUpon>ManageChequesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -209,6 +216,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\Basket\BasketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Cheques\ChequesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Cheques\ManageChequesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

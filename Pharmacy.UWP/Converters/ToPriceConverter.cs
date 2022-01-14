@@ -38,6 +38,21 @@ namespace Pharmacy.UWP
 
         }
 
+        public object ConvertToPrice(int value)
+        {
+            Converter();
+
+            foreach (var item in MedicineViewModel.Medicine)
+            {
+                if (value == item.Id)
+                {
+                    return item.Price;
+                }
+            }
+            return "";
+
+        }
+
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             return null;

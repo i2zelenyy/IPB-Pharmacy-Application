@@ -29,7 +29,7 @@ namespace Pharmacy.UWP.Views.Medicine
 
         Domain.Models.Medicine selectedMedicine;
         Domain.Models.Users authorisedUser;
-
+        List<object> data;
         bool _basketMode = false;
 
         public MedicinePage()
@@ -41,7 +41,7 @@ namespace Pharmacy.UWP.Views.Medicine
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            List<object> data = (List<object>)e.Parameter;
+            data = (List<object>)e.Parameter;
 
             authorisedUser = (Domain.Models.Users)data[0];
 
@@ -60,6 +60,7 @@ namespace Pharmacy.UWP.Views.Medicine
             {
                 _basketMode = true;
 
+                AddButton.IsEnabled = true;
                 EditButton.IsEnabled = false;
                 DeleteButton.IsEnabled = false;
             }
@@ -70,7 +71,7 @@ namespace Pharmacy.UWP.Views.Medicine
             try
             {
                 await MedicineViewModel.DeleteMedicineAsync();
-                Frame.Navigate(this.GetType());
+                Frame.Navigate(this.GetType(), data);
             }
             catch
             {
@@ -94,13 +95,16 @@ namespace Pharmacy.UWP.Views.Medicine
         {
             if (_basketMode == true)
             {
-                BasketViewModel.MedicineID = selectedMedicine.Id;
-                BasketViewModel.UserID = authorisedUser.Id;
-                BasketViewModel.Quantity = 1;
+                if (selectedMedicine != null)
+                {
+                    BasketViewModel.MedicineID = selectedMedicine.Id;
+                    BasketViewModel.UserID = authorisedUser.Id;
+                    BasketViewModel.Quantity = 1;
 
-                await BasketViewModel.CreateBasketAsync();
+                    await BasketViewModel.CreateBasketAsync();
 
-                this.Frame.GoBack();
+                    this.Frame.GoBack();
+                }
             }
             else
             {
