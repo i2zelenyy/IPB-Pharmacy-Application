@@ -70,22 +70,22 @@ namespace Pharmacy.UWP.Views.Registration
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstNameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                 UsersViewModel.FirstName = FirstNameTextBox.Text;
             else
                 _error = true;
 
-            if (LastNameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                 UsersViewModel.LastName = LastNameTextBox.Text;
             else
                 _error = true;
 
-            if (UsernameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                 UsersViewModel.Username = UsernameTextBox.Text;
             else
                 _error = true;
 
-            if (DateOfBirthTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                 try
                 {
                     UsersViewModel.DateOfBirth = DateTime.ParseExact(DateOfBirthTextBox.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -97,7 +97,7 @@ namespace Pharmacy.UWP.Views.Registration
             else
                 _error = true;
 
-            if (PasswordBox_1.Password != "")
+            if (!string.IsNullOrWhiteSpace(PasswordBox_1.Password))
             {
                 if (PasswordBox_1.Password == PasswordBox_2.Password)
                     UsersViewModel.Password = PasswordBox_1.Password;
@@ -116,16 +116,16 @@ namespace Pharmacy.UWP.Views.Registration
                 CreateMessageBox.Text = "Do you want to create the account?";
                 CreateConfirmationButton.Visibility = Visibility.Visible;
 
-                if (FirstNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                     FirstNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (LastNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                     LastNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (UsernameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                     UsernameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (DateOfBirthTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                 {
                     try
                     {
@@ -138,7 +138,7 @@ namespace Pharmacy.UWP.Views.Registration
                     }
                 }
 
-                if (PasswordBox_1.Password != "")
+                if (!string.IsNullOrWhiteSpace(PasswordBox_1.Password))
                 {
                     if (PasswordBox_1.Password == PasswordBox_2.Password)
                         PasswordBox_1.BorderBrush = new SolidColorBrush(Colors.Black);
@@ -151,31 +151,31 @@ namespace Pharmacy.UWP.Views.Registration
                 CreateConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
-                if (FirstNameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                     FirstNameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (LastNameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                     LastNameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (UsernameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                     UsernameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (DateOfBirthTextBox.Text == "")
+                if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                     DateOfBirthTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (PasswordBox_1.Password == "")
+                if (string.IsNullOrWhiteSpace(PasswordBox_1.Password))
                     PasswordBox_1.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (FirstNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                     FirstNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (LastNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                     LastNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (UsernameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                     UsernameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (DateOfBirthTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                 {
                     try
                     {
@@ -209,22 +209,22 @@ namespace Pharmacy.UWP.Views.Registration
             if (selectedUser != null)
                 UsersViewModel.Id = selectedUser.Id;
 
-            if (FirstNameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                 UsersViewModel.FirstName = FirstNameTextBox.Text;
             else
                 _error = true;
 
-            if (LastNameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                 UsersViewModel.LastName = LastNameTextBox.Text;
             else
                 _error = true;
 
-            if (UsernameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                 UsersViewModel.Username = UsernameTextBox.Text;
             else
                 _error = true;
 
-            if (DateOfBirthTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                 try
                 {
                     UsersViewModel.DateOfBirth = DateTime.ParseExact(DateOfBirthTextBox.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -236,7 +236,7 @@ namespace Pharmacy.UWP.Views.Registration
             else
                 _error = true;
 
-            if (PasswordBox_1.Password != "")
+            if (!string.IsNullOrWhiteSpace(PasswordBox_1.Password))
             {
                 if (PasswordBox_1.Password == PasswordBox_2.Password)
                     UsersViewModel.Password = PasswordBox_1.Password;
@@ -255,16 +255,16 @@ namespace Pharmacy.UWP.Views.Registration
                 SaveMessageBox.Text = "Do you want to save the changes?";
                 SaveConfirmationButton.Visibility = Visibility.Visible;
 
-                if (FirstNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                     FirstNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (LastNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                     LastNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (UsernameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                     UsernameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (DateOfBirthTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                 {
                     try
                     {
@@ -277,7 +277,7 @@ namespace Pharmacy.UWP.Views.Registration
                     }
                 }
 
-                if (PasswordBox_1.Password != "")
+                if (!string.IsNullOrWhiteSpace(PasswordBox_1.Password))
                 {
                     if (PasswordBox_1.Password == PasswordBox_2.Password)
                         PasswordBox_1.BorderBrush = new SolidColorBrush(Colors.Black);
@@ -290,31 +290,31 @@ namespace Pharmacy.UWP.Views.Registration
                 SaveConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
-                if (FirstNameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                     FirstNameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (LastNameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                     LastNameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (UsernameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                     UsernameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (DateOfBirthTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                     DateOfBirthTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (PasswordBox_1.Password == "")
+                if (string.IsNullOrWhiteSpace(PasswordBox_1.Password))
                     PasswordBox_1.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (FirstNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
                     FirstNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (LastNameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(LastNameTextBox.Text))
                     LastNameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (UsernameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(UsernameTextBox.Text))
                     UsernameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (DateOfBirthTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(DateOfBirthTextBox.Text))
                 {
                     try
                     {

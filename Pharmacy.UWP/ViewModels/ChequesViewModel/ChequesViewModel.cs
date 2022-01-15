@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.UWP.ViewModels.ChequesViewModel
 {
-    public class BasketsViewModel
+    public class ChequesViewModel
     {
         public ObservableCollection<Cheques> Cheques { get; set; }
 
@@ -24,7 +24,7 @@ namespace Pharmacy.UWP.ViewModels.ChequesViewModel
         public Baskets Baskets { get; set; }
         public Stores Stores { get; set; }
 
-        public BasketsViewModel()
+        public ChequesViewModel()
         {
             Cheques = new ObservableCollection<Cheques>();
         }

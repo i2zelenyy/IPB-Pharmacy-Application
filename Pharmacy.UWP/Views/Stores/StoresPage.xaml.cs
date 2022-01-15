@@ -5,6 +5,7 @@ using Pharmacy.UWP.ViewModels.StoresViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Pharmacy.UWP.Views.Cheques;
+using Pharmacy.UWP.ViewModels.ChequesViewModel;
 
 namespace Pharmacy.UWP.Views.Stores
 {
@@ -12,6 +13,7 @@ namespace Pharmacy.UWP.Views.Stores
     {
         List<object> data;
         public StoresViewModel StoresViewModel { get; set; }
+        public ChequesViewModel ChequesViewModel { get; set; }
 
         Domain.Models.Users authorisedUser;
         Domain.Models.Stores selectedStore;
@@ -21,6 +23,7 @@ namespace Pharmacy.UWP.Views.Stores
         {
             this.InitializeComponent();
             StoresViewModel = new StoresViewModel();
+            ChequesViewModel = new ChequesViewModel();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -30,12 +33,28 @@ namespace Pharmacy.UWP.Views.Stores
 
             await Task.Delay(50);
             await StoresViewModel.LoadAllAsync();
+            await ChequesViewModel.LoadAllAsync();
 
             if (authorisedUser.IsAdmin == false)
             {
                 AddButton.IsEnabled = false;
                 EditButton.IsEnabled = false;
                 DeleteButton.IsEnabled = false;
+            }
+            else
+            {
+                foreach (var cheque in ChequesViewModel.Cheques)
+                {
+                    var temp = (Domain.Models.Cheques)cheque;
+
+                    foreach (var store in StoresViewModel.Stores)
+                    {
+                        if (temp.StoresID == store.Id)
+                        {
+                            DeleteButton.IsEnabled = false;
+                        }
+                    }
+                }
             }
 
             if (data[1] == "Cheques")

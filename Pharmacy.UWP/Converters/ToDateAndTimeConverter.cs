@@ -10,19 +10,19 @@ namespace Pharmacy.UWP
 {
     public class ToDateAndTimeConverter : IValueConverter
     {
-        public BasketsViewModel BasketsViewModel { get; set; }
+        public ChequesViewModel ChequesViewModel { get; set; }
 
         public async Task Converter()
         {
-            BasketsViewModel = new BasketsViewModel();
-            await BasketsViewModel.LoadAllAsync();
+            ChequesViewModel = new ChequesViewModel();
+            await ChequesViewModel.LoadAllAsync();
         }
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             Converter();
 
-            foreach (var item in BasketsViewModel.Cheques)
+            foreach (var item in ChequesViewModel.Cheques)
             {
                 if ((int)value == item.Id)
                 {

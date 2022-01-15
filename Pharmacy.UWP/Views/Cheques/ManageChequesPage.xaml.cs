@@ -20,7 +20,7 @@ namespace Pharmacy.UWP.Views.Cheques
 {
     public sealed partial class ManageChequesPage : Page
     {
-        public BasketsViewModel ChequesViewModel { get; set; }
+        public ChequesViewModel ChequesViewModel { get; set; }
         public BasketViewModel BasketViewModel { get; set; }
 
         object data;
@@ -31,7 +31,7 @@ namespace Pharmacy.UWP.Views.Cheques
         public ManageChequesPage()
         {
             this.InitializeComponent();
-            ChequesViewModel = new BasketsViewModel();
+            ChequesViewModel = new ChequesViewModel();
             BasketViewModel = new BasketViewModel();
         }
 

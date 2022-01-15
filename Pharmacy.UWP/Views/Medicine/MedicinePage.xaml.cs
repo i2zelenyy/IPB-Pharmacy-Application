@@ -1,4 +1,5 @@
 ﻿using Pharmacy.UWP.ViewModels.BasketViewModel;
+using Pharmacy.UWP.ViewModels.ChequesViewModel;
 using Pharmacy.UWP.ViewModels.MedicineViewModel;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,21 @@ namespace Pharmacy.UWP.Views.Medicine
                 EditButton.IsEnabled = false;
                 DeleteButton.IsEnabled = false;
             }
+            else
+            {
+                foreach (var basket in BasketViewModel.Baskets)
+                {
+                    var temp = (Domain.Models.Baskets)basket;
+
+                    foreach (var medicine in MedicineViewModel.Medicine)
+                    {
+                        if (temp.MedicineID == medicine.Id)
+                        {
+                            DeleteButton.IsEnabled = false;
+                        }
+                    }
+                }
+            }
 
             if (data[1] == "Basket")
             {
@@ -65,7 +81,7 @@ namespace Pharmacy.UWP.Views.Medicine
                 DeleteButton.IsEnabled = false;
             }
         }
-        
+
         private async void DeleteConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
             try

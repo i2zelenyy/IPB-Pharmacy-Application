@@ -1,5 +1,6 @@
 ﻿using Pharmacy.UWP.ViewModels.BasketViewModel;
 using Pharmacy.UWP.ViewModels.MedicineViewModel;
+using Pharmacy.UWP.ViewModels.ChequesViewModel;
 using Pharmacy.UWP.Views.Cheques;
 using Pharmacy.UWP.Views.Medicine;
 using System;
@@ -24,6 +25,7 @@ namespace Pharmacy.UWP.Views.Basket
     {
         public BasketViewModel BasketViewModel { get; set; }
         public MedicineViewModel MedicineViewModel { get; set; }
+        public ChequesViewModel ChequesViewModel { get; set; }
 
         object data;
 
@@ -35,6 +37,7 @@ namespace Pharmacy.UWP.Views.Basket
             this.InitializeComponent();
             BasketViewModel = new BasketViewModel();
             MedicineViewModel = new MedicineViewModel();
+            ChequesViewModel = new ChequesViewModel();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -44,8 +47,23 @@ namespace Pharmacy.UWP.Views.Basket
 
             await Task.Delay(50);
             await BasketViewModel.LoadBasketAsync(authorisedUser.Id);
+            await ChequesViewModel.LoadAllAsync();
 
             TotalTextBlock.Text = TotalCount() + " €";
+
+
+            foreach (var cheque in ChequesViewModel.Cheques)
+            {
+                var temp = (Domain.Models.Cheques)cheque;
+
+                foreach (var basket in BasketViewModel.Baskets)
+                {
+                    if (temp.BasketsID == basket.Id)
+                    {
+                        DeleteButton.IsEnabled = false;
+                    }
+                }
+            }
         }
 
         public string TotalCount()

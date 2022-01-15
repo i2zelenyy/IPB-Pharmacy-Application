@@ -69,22 +69,22 @@ namespace Pharmacy.UWP.Views.Medicine
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                 MedicineViewModel.Name = NameTextBox.Text;
             else
                 _error = true;
 
-            if (CategoryTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                 MedicineViewModel.Category = CategoryTextBox.Text;
             else
                 _error = true;
 
-            if (BrandTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(BrandTextBox.Text))
                 MedicineViewModel.Brand = BrandTextBox.Text;
             else
                 _error = true;
 
-            if (PriceTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(PriceTextBox.Text))
                 try
                 {
                     MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
@@ -105,16 +105,16 @@ namespace Pharmacy.UWP.Views.Medicine
                 AddMessageBox.Text = "Do you want to add the medicine?";
                 AddConfirmationButton.Visibility = Visibility.Visible;
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CategoryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                     CategoryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (BrandTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(BrandTextBox.Text))
                     BrandTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (PriceTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(PriceTextBox.Text))
                 {
                     try
                     {
@@ -134,19 +134,19 @@ namespace Pharmacy.UWP.Views.Medicine
                 AddConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
-                if (NameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (CategoryTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                     CategoryTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (BrandTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(BrandTextBox.Text))
                     BrandTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (PriceTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(PriceTextBox.Text))
                     PriceTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (PriceTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(PriceTextBox.Text))
                 {
                     try
                     {
@@ -158,13 +158,13 @@ namespace Pharmacy.UWP.Views.Medicine
                     }
                 }
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CategoryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                     CategoryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (BrandTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(BrandTextBox.Text))
                     BrandTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
         }
@@ -183,22 +183,22 @@ namespace Pharmacy.UWP.Views.Medicine
             if (selectedMedicine != null)
                 MedicineViewModel.Id = selectedMedicine.Id;
 
-            if (NameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                 MedicineViewModel.Name = NameTextBox.Text;
             else
                 _error = true;
 
-            if (CategoryTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                 MedicineViewModel.Category = CategoryTextBox.Text;
             else
                 _error = true;
 
-            if (BrandTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(BrandTextBox.Text))
                 MedicineViewModel.Brand = BrandTextBox.Text;
             else
                 _error = true;
 
-            if (PriceTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(PriceTextBox.Text))
                 try
                 {
                     MedicineViewModel.Price = float.Parse(PriceTextBox.Text);
@@ -222,16 +222,16 @@ namespace Pharmacy.UWP.Views.Medicine
                 SaveMessageBox.Text = "Do you want to save the changes?";
                 SaveConfirmationButton.Visibility = Visibility.Visible;
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CategoryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                     CategoryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (BrandTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(BrandTextBox.Text))
                     BrandTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (PriceTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(PriceTextBox.Text))
                 {
                     try
                     {
@@ -250,19 +250,19 @@ namespace Pharmacy.UWP.Views.Medicine
                 SaveConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
-                if (NameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (CategoryTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                     CategoryTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (BrandTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(BrandTextBox.Text))
                     BrandTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (PriceTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(PriceTextBox.Text))
                     PriceTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (PriceTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(PriceTextBox.Text))
                 {
                     try
                     {
@@ -274,13 +274,13 @@ namespace Pharmacy.UWP.Views.Medicine
                     }
                 }
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CategoryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CategoryTextBox.Text))
                     CategoryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (BrandTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(BrandTextBox.Text))
                     BrandTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
         }

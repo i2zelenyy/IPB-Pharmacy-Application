@@ -57,22 +57,22 @@ namespace Pharmacy.UWP.Views.Stores
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                 StoresViewModel.Name = NameTextBox.Text;
             else
                 _error = true;
 
-            if (CountryTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
                 StoresViewModel.Country = CountryTextBox.Text;
             else
                 _error = true;
 
-            if (CityTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
                 StoresViewModel.City = CityTextBox.Text;
             else
                 _error = true;
 
-            if (StreetTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
                 StoresViewModel.Street = StreetTextBox.Text;
             else
                 _error = true;
@@ -85,16 +85,16 @@ namespace Pharmacy.UWP.Views.Stores
                 AddMessageBox.Text = "Do you want to add the store?";
                 AddConfirmationButton.Visibility = Visibility.Visible;
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CountryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
                     CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CityTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
                     CityTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (StreetTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
             else
@@ -103,28 +103,28 @@ namespace Pharmacy.UWP.Views.Stores
                 AddConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
-                if (NameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);  
 
-                if (CountryTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(CountryTextBox.Text))
                     CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (CityTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(CityTextBox.Text))
                     CityTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (StreetTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(StreetTextBox.Text))
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CountryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
                     CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CityTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
                     CityTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (StreetTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
                 
@@ -146,22 +146,22 @@ namespace Pharmacy.UWP.Views.Stores
                 StoresViewModel.Id = selectedStore.Id;
             }
             
-            if (NameTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                 StoresViewModel.Name = NameTextBox.Text;
             else
                 _error = true;
 
-            if (CountryTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
                 StoresViewModel.Country = CountryTextBox.Text;
             else
                 _error = true;
 
-            if (CityTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
                 StoresViewModel.City = CityTextBox.Text;
             else
                 _error = true;
 
-            if (StreetTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
                 StoresViewModel.Street = StreetTextBox.Text;
             else
                 _error = true;
@@ -174,16 +174,16 @@ namespace Pharmacy.UWP.Views.Stores
                 SaveMessageBox.Text = "Do you want to save the changes?";
                 SaveConfirmationButton.Visibility = Visibility.Visible;
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CountryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
                     CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CityTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
                     CityTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (StreetTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
             else
@@ -192,28 +192,28 @@ namespace Pharmacy.UWP.Views.Stores
                 SaveConfirmationButton.Visibility = Visibility.Collapsed;
                 _error = false;
 
-                if (NameTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (CountryTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(CountryTextBox.Text))
                     CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (CityTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(CityTextBox.Text))
                     CityTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (StreetTextBox.Text == "")
+                if (string.IsNullOrWhiteSpace(StreetTextBox.Text))
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
 
-                if (NameTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(NameTextBox.Text))
                     NameTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CountryTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CountryTextBox.Text))
                     CountryTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (CityTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
                     CityTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
 
-                if (StreetTextBox.Text != "")
+                if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
                     StreetTextBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
         }

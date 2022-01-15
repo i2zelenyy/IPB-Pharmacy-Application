@@ -25,7 +25,7 @@ namespace Pharmacy.UWP.Views.Cheques
         List<object> data;
         public BasketViewModel BasketViewModel { get; set; }
         public MedicineViewModel MedicineViewModel { get; set; }
-        public BasketsViewModel ChequesViewModel { get; set; }
+        public ChequesViewModel ChequesViewModel { get; set; }
 
         Domain.Models.Users authorisedUser;
         Domain.Models.Stores selectedStore;
@@ -36,7 +36,7 @@ namespace Pharmacy.UWP.Views.Cheques
             this.InitializeComponent();
             BasketViewModel = new BasketViewModel();
             MedicineViewModel = new MedicineViewModel();
-            ChequesViewModel = new BasketsViewModel();
+            ChequesViewModel = new ChequesViewModel();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -95,7 +95,7 @@ namespace Pharmacy.UWP.Views.Cheques
         {
             if (TotalTextBlock.Text != "0" + " €")
             {
-                if (StoreTextBlock.Text != "")
+                if (!string.IsNullOrWhiteSpace(StoreTextBlock.Text))
                 {
                     ChequesViewModel.StoresID = selectedStore.Id;
                     ChequesViewModel.TotalPrice = totalSum;

@@ -61,7 +61,7 @@ namespace Pharmacy.UWP.Views.Profile
 
         private async void ChangePasswordConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (PasswordBox_1.Password != "")
+            if (!string.IsNullOrWhiteSpace(PasswordBox_1.Password))
             {
                 if (PasswordBox_1.Password == PasswordBox_2.Password)
                 {
@@ -73,7 +73,7 @@ namespace Pharmacy.UWP.Views.Profile
 
         private async void ChangeTelephoneConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (TelephoneTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(TelephoneTextBox.Text))
             {
                 UsersViewModel.Telephone = TelephoneTextBox.Text;
                 await UsersViewModel.UpdateUserAsync();
@@ -82,7 +82,7 @@ namespace Pharmacy.UWP.Views.Profile
 
         private async void ChangeStreetConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (StreetTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(StreetTextBox.Text))
             {
                 UsersViewModel.Street = StreetTextBox.Text;
                 await UsersViewModel.UpdateUserAsync();
@@ -115,7 +115,7 @@ namespace Pharmacy.UWP.Views.Profile
 
         private async void ChangeEmailConfirmationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (EmailTextBox.Text != "")
+            if (!string.IsNullOrWhiteSpace(EmailTextBox.Text))
             {
                 UsersViewModel.Email = EmailTextBox.Text;
                 await UsersViewModel.UpdateUserAsync();
