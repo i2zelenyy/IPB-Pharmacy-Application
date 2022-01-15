@@ -8,39 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid BorderBrush="Black" BorderThickness="2" Margin="1">
 
-        <!--<GridView
-            x:Name="ContentGridView"
-            ItemsSource="{x:Bind Items}"
-            ItemTemplate="{StaticResource ImageTextTemplate}"
-            IsItemClickEnabled="True"
-            CanDragItems="False"
-            AllowDrop="False"
-            CanReorderItems="False"
-            SelectionMode="Single"
-            SelectionChanged="ContentGridView_SelectionChanged"
-            ItemClick="ContentGridView_ItemClick"
-            FlowDirection="RightToLeft">
-
-            <DataTemplate x: Key = 'ImageTextTemplate' x: DataType = 'local1:CustomDataObject'> 
-                <Grid AutomationProperties.Name = '{x:Bind MedicineItem}' Width = '280'>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height = 'Auto'/>
-                        <RowDefinition Height = '*'/>
-                    </Grid.RowDefinitions>
-                    <Image Source = '{x:Bind Image}' Width = '200' Stretch = 'Fill' HorizontalAlignment = 'Left'/>
-                    <StackPanel Grid.Row = '1' Margin = '8,0,0,8'>
-                        <TextBlock Text = '{x:Bind Name}' Style = '{ThemeResource SubtitleTextBlockStyle}' Margin = '0,0,0,8'/>
-                        <StackPanel Orientation = 'Horizontal'>
-                            <TextBlock Text = '{x:Bind Cost}' Style = '{ThemeResource CaptionTextBlockStyle}'/>
-                            <TextBlock Text = ' € ' Style = '{ThemeResource CaptionTextBlockStyle}'/>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </DataTemplate>
-
-        </GridView>-->
+        <Image Source="/Assets/Welcome_Fancy_Text.png" Height="200" MinWidth="400" />
 
     </Grid>
 </Page>
