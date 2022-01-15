@@ -192,11 +192,13 @@ namespace Pharmacy.Infrastructure.Migrations
                     b.HasOne("Pharmacy.Domain.Models.Baskets", "Baskets")
                         .WithMany("Cheques")
                         .HasForeignKey("BasketsID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Pharmacy.Domain.Models.Stores", "Stores")
                         .WithMany("Cheques")
                         .HasForeignKey("StoresID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

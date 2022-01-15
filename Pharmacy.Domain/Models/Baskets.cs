@@ -13,11 +13,11 @@ namespace Pharmacy.Domain.Models
 
         public int UserID { get; set; }
 
-        public Users Users { get; set; }  // 1-many relationship
+        public virtual Users Users { get; set; }  // 1-many relationship
 
-        public Medicine Medicine { get; set; } // 1-many relationship
+        public virtual Medicine Medicine { get; set; } // 1-many relationship
 
-        public List<Cheques> Cheques { get; set; } // 1-many relationship
+        public virtual List<Cheques> Cheques { get; set; } // 1-many relationship
 
         public Baskets()
         {

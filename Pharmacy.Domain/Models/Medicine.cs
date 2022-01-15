@@ -16,7 +16,7 @@ namespace Pharmacy.Domain.Models
         public string HowToUse { get; set; }
         public byte[] MedicineImage { get; set; }
 
-        public List<Baskets> Baskets { get; set; }
+        public virtual List<Baskets> Baskets { get; set; }
 
         public Medicine()
         {

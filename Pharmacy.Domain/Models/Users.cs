@@ -17,7 +17,7 @@ namespace Pharmacy.Domain.Models
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
 
-        public List<Baskets> Baskets { get; set; } // 1-many relationship
+        public virtual List<Baskets> Baskets { get; set; } // 1-many relationship
 
         public Users()
         {

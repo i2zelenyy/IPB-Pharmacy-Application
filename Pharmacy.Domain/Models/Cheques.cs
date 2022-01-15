@@ -13,8 +13,8 @@ namespace Pharmacy.Domain.Models
         public int StoresID { get; set; }
         public int BasketsID { get; set; }
 
-        public Baskets Baskets { get; set; }  // 1-many relationship
-        public Stores Stores { get; set; }  // 1-many relationship
+        public virtual Baskets Baskets { get; set; }  // 1-many relationship
+        public virtual Stores Stores { get; set; }  // 1-many relationship
 
         public Cheques()
         {

@@ -108,7 +108,20 @@ namespace Pharmacy.UWP.Views.Cheques
                         ChequesViewModel.BasketsID = temp.Id;
 
                         await ChequesViewModel.CreateChequeAsync();
-                    }                   
+                    }
+
+                    //foreach (var basket in BasketViewModel.Baskets)
+                    //{
+                    //    var temp = (Domain.Models.Baskets)basket;
+
+                    //    BasketViewModel.Id = temp.Id;
+                    //    BasketViewModel.MedicineID = temp.MedicineID;
+                    //    BasketViewModel.UserID = temp.UserID;
+                    //    BasketViewModel.Quantity = temp.Quantity;
+
+                    //    await BasketViewModel.DeleteBasketAsync();
+                    //}
+
                 }
             }
         }

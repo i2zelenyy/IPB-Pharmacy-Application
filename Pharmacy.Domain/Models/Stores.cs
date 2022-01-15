@@ -14,7 +14,7 @@ namespace Pharmacy.Domain.Models
         public string Telephone { get; set; }
         public string OpeningHours { get; set; }
 
-        public List<Cheques> Cheques { get; set; }
+        public virtual List<Cheques> Cheques { get; set; }
 
         public Stores()
         {

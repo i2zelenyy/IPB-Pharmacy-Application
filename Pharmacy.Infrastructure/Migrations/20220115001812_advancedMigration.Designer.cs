@@ -9,7 +9,7 @@ using Pharmacy.Infrastructure;
 namespace Pharmacy.Infrastructure.Migrations
 {
     [DbContext(typeof(PharmacyDbContext))]
-    [Migration("20220114044937_advancedMigration")]
+    [Migration("20220115001812_advancedMigration")]
     partial class advancedMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -194,11 +194,13 @@ namespace Pharmacy.Infrastructure.Migrations
                     b.HasOne("Pharmacy.Domain.Models.Baskets", "Baskets")
                         .WithMany("Cheques")
                         .HasForeignKey("BasketsID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Pharmacy.Domain.Models.Stores", "Stores")
                         .WithMany("Cheques")
                         .HasForeignKey("StoresID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
