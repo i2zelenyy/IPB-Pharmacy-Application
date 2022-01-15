@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\FromBasketsID_Converter.cs" />
+    <Compile Include="Converters\ToDateAndTimeConverter.cs" />
     <Compile Include="Converters\ToImageConverter.cs" />
     <Compile Include="Converters\ToNameConverter.cs" />
     <Compile Include="Converters\ToPriceConverter.cs" />

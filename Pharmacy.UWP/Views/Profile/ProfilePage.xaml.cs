@@ -1,4 +1,5 @@
 ﻿using Pharmacy.UWP.ViewModels.UsersViewModel;
+using Pharmacy.UWP.Views.Cheques;
 using Pharmacy.UWP.Views.SignIn;
 using Pharmacy.UWP.Views.Users;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -21,6 +23,7 @@ namespace Pharmacy.UWP.Views.Profile
     public sealed partial class ProfilePage : Page
     {
         public UsersViewModel UsersViewModel { get; set; }
+        object data;
 
         public ProfilePage()
         {
@@ -30,7 +33,7 @@ namespace Pharmacy.UWP.Views.Profile
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            object data = e.Parameter;
+            data = e.Parameter;
             Domain.Models.Users authorisedUser = (Domain.Models.Users) data;
 
             UsersViewModel.FirstName = authorisedUser.FirstName;
@@ -106,9 +109,22 @@ namespace Pharmacy.UWP.Views.Profile
             if (DeleteAccountTextBox.Text == "DELETE")
             {
                 await UsersViewModel.DeleteUserAsync();
-                this.Frame.Navigate(typeof(SignInPage));
+                await CoreApplication.RequestRestartAsync("");
             }
         }
 
+        private async void ChangeEmailConfirmationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (EmailTextBox.Text != "")
+            {
+                UsersViewModel.Email = EmailTextBox.Text;
+                await UsersViewModel.UpdateUserAsync();
+            }
+        }
+
+        private void ManageChequesButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ManageChequesPage), data);
+        }
     }
 }

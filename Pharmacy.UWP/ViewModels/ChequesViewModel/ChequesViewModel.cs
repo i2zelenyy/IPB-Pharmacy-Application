@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Pharmacy.UWP.ViewModels.ChequesViewModel
 {
-    public class ChequesViewModel
+    public class BasketsViewModel
     {
         public ObservableCollection<Cheques> Cheques { get; set; }
 
@@ -24,7 +24,7 @@ namespace Pharmacy.UWP.ViewModels.ChequesViewModel
         public Baskets Baskets { get; set; }
         public Stores Stores { get; set; }
 
-        public ChequesViewModel()
+        public BasketsViewModel()
         {
             Cheques = new ObservableCollection<Cheques>();
         }
@@ -38,6 +38,21 @@ namespace Pharmacy.UWP.ViewModels.ChequesViewModel
                 foreach (Cheques i in list)
                 {
                     Cheques.Add(i);
+                }
+            }
+        }
+
+        public async Task LoadChequeAsync(int BasketsID)
+        {
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                List<Cheques> list = await uow.ChequesRepository.FindAllAsync();
+                foreach (Cheques i in list)
+                {
+                    if (i.BasketsID == BasketsID)
+                    {
+                        Cheques.Add(i);
+                    }
                 }
             }
         }

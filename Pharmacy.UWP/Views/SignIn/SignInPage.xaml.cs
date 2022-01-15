@@ -35,7 +35,7 @@ namespace Pharmacy.UWP.Views.SignIn
 
             UsersViewModel = new UsersViewModel();
 
-            ApplicationView.PreferredLaunchViewSize = new Size(800, 600);
+            ApplicationView.PreferredLaunchViewSize = new Size(1400, 800);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
         }
 

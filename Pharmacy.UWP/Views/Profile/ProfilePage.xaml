@@ -35,6 +35,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <Button Grid.Row="0" Width="150" Height="40" x:Name="ChangePasswordButton" Content="Change Password" BorderBrush="Black" BorderThickness="2" Margin="100,15,0,0" CornerRadius="5" Background="LightSkyBlue">
@@ -83,11 +84,27 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
+
+                <Button Grid.Row="3" Width="150" Height="40" x:Name="ChangeEmailButton" Content="Change Email" BorderBrush="Black" BorderThickness="2" Margin="100,15,0,0" CornerRadius="5" Background="LightSkyBlue">
+                    <Button.Flyout>
+                        <Flyout>
+                            <Grid Height="140" Width="230" Background="#d8d9d0" CornerRadius="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" x:Name="EmailTextBox" Header="New Email" Height="55" Margin="10,0,10,0"/>
+                                <AppBarButton Grid.Row="1" x:Name="ChangeEmailConfirmationButton" Click="ChangeEmailConfirmationButton_Click"  Icon="Accept" CornerRadius="10" Margin="80,0,0,0" Label="CHANGE"/>
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
             </Grid>
 
                        
             <Grid Grid.Column="1" HorizontalAlignment="Left">
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -124,9 +141,10 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
+
+                <Button Grid.Row="3" Width="150" Height="40" x:Name="ManageChequesButton" Content="Manage Cheques" Click="ManageChequesButton_Click" BorderBrush="Black" BorderThickness="2" Margin="100,15,0,0" CornerRadius="5" Background="LightSkyBlue"/>
+
             </Grid>
-
-
 
         </Grid>
         

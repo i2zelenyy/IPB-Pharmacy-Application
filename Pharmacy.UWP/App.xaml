@@ -11,6 +11,8 @@
             <local:ToNameConverter x:Key="ToNameConverter"/>
             <local:ToImageConverter x:Key="ToImageConverter"/>
             <local:ToPriceConverter x:Key="ToPriceConverter"/>
+            <local:FromBasketsID_Converter x:Key="FromBasketsID_Converter"/>
+            <local:ToDateAndTimeConverter x:Key="ToDateAndTimeConverter"/>
         </ResourceDictionary>
     </Application.Resources>
     

@@ -25,7 +25,7 @@ namespace Pharmacy.UWP.Views.Cheques
         List<object> data;
         public BasketViewModel BasketViewModel { get; set; }
         public MedicineViewModel MedicineViewModel { get; set; }
-        public ChequesViewModel ChequesViewModel { get; set; }
+        public BasketsViewModel ChequesViewModel { get; set; }
 
         Domain.Models.Users authorisedUser;
         Domain.Models.Stores selectedStore;
@@ -36,7 +36,7 @@ namespace Pharmacy.UWP.Views.Cheques
             this.InitializeComponent();
             BasketViewModel = new BasketViewModel();
             MedicineViewModel = new MedicineViewModel();
-            ChequesViewModel = new ChequesViewModel();
+            ChequesViewModel = new BasketsViewModel();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -109,6 +109,8 @@ namespace Pharmacy.UWP.Views.Cheques
 
                         await ChequesViewModel.CreateChequeAsync();
                     }
+
+                    this.Frame.Navigate(typeof(ManageChequesPage), data[0]);
 
                     //foreach (var basket in BasketViewModel.Baskets)
                     //{
